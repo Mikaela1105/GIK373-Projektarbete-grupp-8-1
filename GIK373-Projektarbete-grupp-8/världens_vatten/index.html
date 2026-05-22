@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Världens Vatten</title>
+    <!-- Linking Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header / Navbar -->
+    <header>
+        <nav class="navbar section-content">
+            <a href="#" class="nav-logo">
+                
+                <img src="img/logotype.png" alt="logotype" class="logotype">
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times"></button> <!-- byt namn på class, glöm ej css-->
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="openPanel('#')">Hem</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link" onclick="openPanel('about')">Om oss</a>
+                </li>
+                <li class="nav-item">
+                    <a href="facts.html" class="nav-link" onclick="openPanel('facts')">Fakta</a>
+                </li>
+                <li class="nav-item">
+                    <a href="statistics.html" class="nav-link" onclick="openPanel('statistics')">Statistik</a>
+                </li>
+                <li class="nav-item">
+                    <a href="resources.html" class="nav-link" onclick="openPanel('resources')">Kontakter</a>
+                </li>
+            </ul>
+
+            <button id="menu-open-button" class="fas fa-bars"></button>
+        </nav>
+    </header>
+
+    <!-- Main section -->
+    <main>
+        <!-- Home section -->
+        <section class="home">
+             <!-- kanske döpa om videor-->
+            <video class="video-slide active" src="videos/2.mp4" autoplay muted loop></video>
+            <video class="video-slide" src="videos/school.mp4" autoplay muted loop></video>
+            <video class="video-slide" src="videos/3.mp4" autoplay muted loop></video>
+            <div class="content active">
+                <h1 class="title"><span>Water </span><br>and sanitation<br>worldwide</h1>
+                <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod aliquid non voluptatum vero debitis cumque illo officia, consequatur, corporis fuga magni dolor unde inventore distinctio ut asperiores nulla sed reiciendis.</p>
+                <a class="button" href="#">Read more</a>
+            </div>
+            <div class="content">
+                <h1 class="title">A long walk<br>for clean<br><span>Water</span></h1>
+                <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod aliquid non voluptatum vero debitis cumque illo officia, consequatur, corporis fuga magni dolor unde inventore distinctio ut asperiores nulla sed reiciendis.</p>
+                <a class="button" href="#">Read more</a>
+            </div>
+            <div class="content">
+                <h1 class="title"><span>You</span> can<br>make a huge<br>difference!</h1>
+                <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod aliquid non voluptatum vero debitis cumque illo officia, consequatur, corporis fuga magni dolor unde inventore distinctio ut asperiores nulla sed reiciendis.</p>
+                <a class="button" href="#">Read more</a>
+            </div>
+            <div class="slider-navigation">
+                <div class="nav-btn active"></div>
+                <div class="nav-btn"></div>
+                <div class="nav-btn"></div>
+            </div>
+        </section>
+
+        <!-- About section -->
+        <section class="about-section" id="about">
+            <div class="section-content">
+                <div class="about-image-wrapper">
+                    <img src="img/girl-with-water.jpg" alt="About" class="about-image">
+                </div>
+                <div class="about-details">
+                    <h2 class="section-title">Om oss</h2>
+                    <p class="text">Rent vatten är en grundförutsättning för allt levande på vår jord, trots det inte en självklarhet för alla. Vi brinner för att upplysa om detta ämne eftersom vi tror att en ökad kunskap i samhället är det som bidrar till riktig förändring och utveckling. Genom att visa uppdaterad och riktiga data och statistik kring detta ämne hoppas vi på att skapa intresse och i sin tur medvetenhet om världens situation. Vi vill på ett lättsamt vis sprida förståelse från en individ till en annan. </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facts section -->
+        <section class="facts" id="facts">
+            <h2 class="section-title">Visste du att?</h2>
+            <div class="container">
+                <div class="drop">
+                    <div class="content">
+                        <h2>1.</h2>
+                        <p>Visste du att varje minut dör ett spädbarn till följd av en infektion som beror på vattenbrist, förorenat vatten eller ohygienisk miljö?</p>
+                    </div>
+                    <div class="recourse">
+                        <p>Källa: Röda Korset (u.å.)</p>
+                    </div>
+                </div>
+                <div class="drop">
+                    <div class="content">
+                        <h2>2.</h2>
+                        <p>Visste du att flickor missar <span>10</span>–<span>20%</span> av skoldagar på grund av tidsförlust vid vattenhämtning eller skolan saknar adekvat sanitet. Ofta påverkas detta under perioder av menstruation.</p>
+                    </div>
+                    <div class="recourse">
+                        <p>Källa: Global Citizen (2018)</p>
+                    </div>
+                </div>
+                <div class="drop">
+                    <div class="content">
+                        <h2>3.</h2>
+                        <p>Visste du att handtvätt med tvål och vatten kan minska diarré med <span>30%</span> och akuta luftvägsinfektioner med <span>17%</span>? Denna verkställighet skulle kunna rädda omkring <span>740 000</span> liv årligen.</p>
+                    </div>
+                    <div class="recourse">
+                        <p>Källa: Unwater (u.å.)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer section -->
+        <footer class="footer-section">
+            <div class="section-content">
+                <p class="copyright-text">© 2026 Water & Sanitation</p>
+                <div class="social-link-list">
+                    <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+                <p class="policy-text">
+                    <a href="#" class="policy-link">Privacy policy</a>
+                    <span class="seperator">.</span>
+                    <a href="#" class="policy-link">Refund policy</a>
+                </p>
+            </div>
+        </footer>
+    </main>
+    
+    <!-- Linking json script -->
+    <script src="script.js"></script>
+
+</body>
+</html>

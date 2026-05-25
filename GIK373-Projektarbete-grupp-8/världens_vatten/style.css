@@ -171,8 +171,17 @@ section {
     left: 0;
 }
 
+.home-stat {
+     position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: var(--light-beige-color);
+}
 .home-stat::before {
-    content: "";
+     content: "";
     position: absolute;
     inset: 0;
     z-index: 777;
@@ -184,11 +193,17 @@ section {
             ),
             rgba(29, 87, 188, 0.3);
     width: 100%;
-    height: 30%;
+    height: 100%;
     top: 0;
     left: 0;
 }
 
+.home-imagestat {
+    width: 100%;
+    height: 100%;
+    object-fit: auto;
+    display: block;
+}
 .home .content {
     position: relative;
     z-index: 888;
@@ -245,7 +260,9 @@ section {
     overflow: hidden;
     width: 100%;
     height: 100%;
-    object-fit: cover;}
+    object-fit: cover;
+}
+
 .home video {
     z-index: 000;
     position: absolute;

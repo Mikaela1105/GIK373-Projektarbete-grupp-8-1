@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Header / Navbar -->
     <header>
         <nav class="navbar section-content">
-            <a href="index.html" class="nav-logo">
+            <a href="#" class="nav-logo">
+                
                 <img src="img/logotype.png" alt="logotype" class="logotype">
             </a>
             <ul class="nav-menu">
-                <button id="menu-close-button" class="fas fa-times"></button>
+                <button id="menu-close-button" class="fas fa-times"></button> <!-- byt namn på class, glöm ej css-->
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link" onclick="openPanel('#')">Hem</a>
+                    <a href="#" class="nav-link" onclick="openPanel('#')">Hem</a>
                 </li>
                 <li class="nav-item">
                     <a href="about.html" class="nav-link" onclick="openPanel('about')">Om oss</a>
@@ -25,35 +27,45 @@
                     <a href="facts.html" class="nav-link" onclick="openPanel('facts')">Fakta</a>
                 </li>
                 <li class="nav-item">
-                    <a href="statistics.html" class="nav-link active" onclick="openPanel('statistics')">Statistik</a>
+                    <a href="statistics.html" class="nav-link" onclick="openPanel('statistics')">Statistik</a>
                 </li>
                 <li class="nav-item">
                     <a href="resources.html" class="nav-link" onclick="openPanel('resources')">Kontakter</a>
                 </li>
             </ul>
+
             <button id="menu-open-button" class="fas fa-bars"></button>
         </nav>
     </header>
 
-    <main>
-        <section class="home-stat">
-            <img src="shutterstock_1437067514-1-1000x490.jpg" class="home-imagestat" alt="home-stat">
+     <section>
         </section>
-        <section class="about-section" style="padding: 140px 0 60px 0;">
+
+
+    <main>
+        <section class="about-section-stat" style="padding: 140px 0 60px 0;" >
             <div class="section-content" style="max-width: var(--site-max-width); margin: 0 auto; display: block;">
                 <h2 class="section-title">Statistik och Dataanalys</h2>
                 
-                <div style="margin-bottom: 60px; background: var(--white-color); padding: 30px; border-radius: var(--border-radius-s); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                    <h3 style="margin-bottom: 20px; color: var(--dark-color); font-size: var(--font-size-m); font-weight: var(--font-weight-semibold);">
+                <div style="margin-bottom: 60px; background: var(--white-color); padding: 30px; border-radius: var(--border-radius-m); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <h3 style="margin-bottom: 20px; margin-right: 100px; color: var(--dark-color); font-size: var(--font-size-m); font-weight: var(--font-weight-semibold);">
                         <i class="fa-solid fa-earth-americas" style="color: var(--secondary-color); margin-right: 10px;"></i>
                         Världskarta: Global tillgång till rent vatten År 2021 (%)
                     </h3>
-                    <div style="max-width: 900px; margin: 0 auto;">
-                        <canvas id="owidMap"></canvas>
+                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 250px;">
+                            <p style="color: var(--dark-color); font-size: var(--font-size-s); line-height: 1.6;">
+                                Denna karta visar den globala tillgången till rent vatten år 2021, uttryckt i procent av befolkningen. Länder med högre tillgång är markerade i mörkare färger, medan länder med lägre tillgång är ljusare. Kartan belyser de geografiska skillnaderna i vattenförsörjning och kan hjälpa till att identifiera områden där insatser för att förbättra vatteninfrastrukturen är mest behövda.
+                            </p>
+                        </div>
+                        <div style="flex: 3; min-width: 500px;">
+                            <canvas id="owidMap"></canvas>
+                        </div>
                     </div>
+                    
                 </div>
 
-                <div style="margin-bottom: 60px; background: var(--white-color); padding: 30px; border-radius: var(--border-radius-s); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <div style="margin-bottom: 60px; background: var(--white-color); padding: 30px; border-radius: var(--border-radius-m); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
                     <h3 style="margin-bottom: 20px; color: var(--dark-color); font-size: var(--font-size-m); font-weight: var(--font-weight-semibold);">
                         <i class="fa-solid fa-chart-scatter" style="color: var(--secondary-color); margin-right: 10px;"></i>
                         Scatterplot: BNP vs Tillgång till rent vatten (2024)
@@ -61,7 +73,7 @@
                     <canvas id="owid1"></canvas>
                 </div>
 
-                <div style="margin-bottom: 20px; background: var(--white-color); padding: 30px; border-radius: var(--border-radius-s); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <div style="margin-bottom: 20px; background: var(--white-color); padding: 30px; border-radius: var(--border-radius-m); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
                     <h3 style="margin-bottom: 20px; color: var(--dark-color); font-size: var(--font-size-m); font-weight: var(--font-weight-semibold);">
                         <i class="fa-solid fa-chart-line" style="color: var(--secondary-color); margin-right: 10px;"></i>
                         Linjediagram: Eritreas historiska utveckling
@@ -70,6 +82,8 @@
                 </div>
             </div>
         </section>
+  <!-- About section -->
+
 
         <footer class="footer-section">
             <div class="section-content">

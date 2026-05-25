@@ -291,7 +291,7 @@ new Chart(document.getElementById("owid1"), {
 }
 
 // HeatMap
-if (document.getElementById("owidMap")) {
+/* if (document.getElementById("owidMap")) {
     fetch("https://unpkg.com/world-atlas@2.0.2/countries-110m.json")
       .then((res) => res.json())
       .then((topoData) => {
@@ -335,8 +335,16 @@ function printWorldMap(countries, csvData) {
     },
     options: {  
       plugins: {
+        title: {
+          display: true,
+          text: "Världskarta: Global tillgång till rent vatten år 2021(%)",
+          font: {
+            size: 16
+          }
+        },
         legend: {
-          display: false
+          display: false 
+
         },
         tooltip: {
           callbacks: {
@@ -365,4 +373,4 @@ function printWorldMap(countries, csvData) {
       }
     }
   });
-}
+} */

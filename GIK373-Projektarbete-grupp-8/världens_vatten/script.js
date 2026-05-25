@@ -1,4 +1,4 @@
-//Ändrar panel namn
+// Ändrar panel namn
 function openPanel(panel) {
     if (panel === "#") {
         document.title = "Världens vatten";
@@ -13,7 +13,7 @@ function openPanel(panel) {
     }
 }
 
-//videorna
+// Videorna
 const navLinks = document.querySelectorAll(".nav-menu .nav-link");
 const menuOpenButtoon = document.querySelector("#menu-open-button");
 const menuCloseButtoon = document.querySelector("#menu-close-button");
@@ -33,7 +33,6 @@ if (navLinks && menuOpenButtoon) {
         link.addEventListener("click", () => menuOpenButtoon.click());
     });
 }
-
 
 const btns = document.querySelectorAll(".nav-btn");
 const slides = document.querySelectorAll(".video-slide");
@@ -66,8 +65,32 @@ window.addEventListener("scroll", function () {
     }
 });
 
-//Charts scatterplot och linjediagram
+// Scroll to top 
+let calcScrollValue = () => {
+  let scrollProgress = document.getElementById("progress");
+  let progressValue = document.getElementById("progress-value");
+  let pos = document.documentElement.scrollTop;
+  let calcHeight =
+    document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  let scrollValue = Math.round((pos * 100)/calcHeight);
+  
+  if (pos > 100) {
+    scrollProgress.style.display = "grid";
+  } else {
+    scrollProgress.style.display = "none";
+  }
 
+  scrollProgress.addEventListener("click", () => {
+    document.documentElement.scrollTop = 0;
+  });
+
+  scrollProgress.style.background = `conic-gradient(#124059 ${scrollValue}%, #d7d7d7 ${scrollValue}%)`;
+};
+
+window.onscroll = calcScrollValue;
+window.onload = calcScrollValue;
+
+// Charts scatterplot och linjediagram
 const urlOWID =
   "https://ourworldindata.org/grapher/improved-water-sources-vs-gdp-per-capita.csv?v=1&csvType=full&useColumnShortNames=true";
 
@@ -91,15 +114,14 @@ function printOWIDChart(dataOWID) {
 
   console.log(values)
 
-//LINJEDIAGRAM 
-
+//Linjediagram
 const eritreaData = values
   .filter(row => row[0] === "Togo" &&
     Number(row[2]) > 0 &&
     Number(row[3]) > 0)
   .map(row => ({
-    x: Number(row[2]), //år
-    y: Number(row[3]) // vatten
+    x: Number(row[2]), // År
+    y: Number(row[3]) // Vatten
     
 }))
 
@@ -109,8 +131,8 @@ const swedenData = values
     Number(row[3]) > 0
   )
   .map(row => ({
-    x: Number(row[2]), //år
-    y: Number(row[3]) // vatten
+    x: Number(row[2]), // År
+    y: Number(row[3]) // Vatten
     
 }))
 

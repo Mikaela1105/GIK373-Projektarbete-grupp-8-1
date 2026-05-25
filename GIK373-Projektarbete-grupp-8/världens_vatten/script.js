@@ -93,26 +93,43 @@ function printOWIDChart(dataOWID) {
 
 //LINJEDIAGRAM 
 
- const countryData = values.filter(
-  row => row[0] === "Eritrea"
-)
-
-const chartData = countryData.map(row => ({
+const eritreaData = values
+  .filter(row => row[0] === "Togo" &&
+    Number(row[2]) > 0 &&
+    Number(row[3]) > 0)
+  .map(row => ({
     x: Number(row[2]), //år
     y: Number(row[3]) // vatten
     
 }))
 
+const swedenData = values
+  .filter(row => row[0] === "Sweden" &&
+    Number(row[2]) > 0 &&
+    Number(row[3]) > 0
+  )
+  .map(row => ({
+    x: Number(row[2]), //år
+    y: Number(row[3]) // vatten
+    
+}))
 
 new Chart(document.getElementById("owid2"), {
     type: "line",
     data: {
       datasets: [
         {
-          label: null,
-          data:chartData,
+          label: "Togo",
+          data: eritreaData,
           borderColor: "rgba(46, 141, 146, 0.72)",
           backgroundColor: "rgba(63, 160, 165, 0.84)",
+          borderWidth: 3
+        },
+        {
+          label: "Sverige",
+          data:swedenData,
+          borderColor: "rgba(165, 127, 45, 0.72)",
+          backgroundColor: "rgba(190, 138, 60, 0.84)",
           borderWidth: 3
         }
       ]
@@ -122,16 +139,12 @@ new Chart(document.getElementById("owid2"), {
 
       plugins: {
 
-        title: {
-          display: true,
-          text: "Eritreas tillgång till rent vatten över tid",
-          font: {
-            size: 16
-          }
-        },
-
         legend:{
-          display: false
+          position: "right",
+          labels: {
+            boxWidth: 12,
+            padding: 20
+          }
         },
 
         tooltip: {
@@ -151,11 +164,7 @@ new Chart(document.getElementById("owid2"), {
       scales: {
         x: {
           type: "linear", // ÄNDRA TILL CATEGORY?
-          title: {
-            display:true,
-            text: "År",
-            padding: 16,
-          },
+          
           ticks: {
             callback: (value) => Number(value)
           }
@@ -168,12 +177,12 @@ new Chart(document.getElementById("owid2"), {
              padding: 16,
           },
            ticks: {
-          callback: (value) => value.toFixed(1) + "%"
+          callback: (value) => value.toFixed(0) + "%"
           }
         }
       }
     }
-})  
+})
 
 // SCATTERPLOT
   // välj år
@@ -229,19 +238,13 @@ new Chart(document.getElementById("owid1"), {
   options: {
 
     plugins: {
-      title: {
-          display: true,
-          text: "BNP per capita vs tillgång till rent vatten",
-          font: {
-            size: 16
-          }
-      },
         
       legend:{
           position: "right",
+          align: "top",
           labels: {
             boxWidth: 12,
-            padding: 20
+            padding: 15
           }
         },
 

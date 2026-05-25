@@ -407,7 +407,7 @@ section {
 
 /* Statistics section styling */
 section {
-    padding: 100px 150px;
+    padding: 100px 100px;
 }
 
 .statistics-start {
@@ -470,6 +470,43 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* Statistic content section styling */
+
+.vizualistation-section {
+    background: #eff0f4;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.vizualistation-section .container {
+    border-radius: var(--border-radius-m);
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px;
+    box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+    25px 35px 20px rgba(0, 0, 0, 0.05),
+    25px 30px 30px rgba(0, 0, 0, 0.05),
+    inset -20px -20px 25px rgba(255, 255, 255, 0.68);
+}
+
+.vizualistation-section .content {
+    flex: 1;
+    line-height: 25px;
+    font-size: var(--font-size-s);
+    max-width: 320px;
+}
+
+.vizualistation-section .vizualisation-title {
+    padding: 0 0 20px 0;
+}
+
+.vizualistation-section .chart {
+    flex: 1;
 }
 
 /* Footer section styling */

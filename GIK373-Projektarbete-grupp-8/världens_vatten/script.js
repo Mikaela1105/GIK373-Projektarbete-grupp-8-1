@@ -294,7 +294,7 @@ new Chart(document.getElementById("owid1"), {
 }
 
 // HeatMap
-/* if (document.getElementById("owidMap")) {
+if (document.getElementById("owidMap")) {
     fetch("https://unpkg.com/world-atlas@2.0.2/countries-110m.json")
       .then((res) => res.json())
       .then((topoData) => {
@@ -376,4 +376,4 @@ function printWorldMap(countries, csvData) {
       }
     }
   });
-} */
+}

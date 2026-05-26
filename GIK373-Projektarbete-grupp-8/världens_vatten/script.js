@@ -94,10 +94,14 @@ window.onload = calcScrollValue;
 const urlOWID =
   "https://ourworldindata.org/grapher/improved-water-sources-vs-gdp-per-capita.csv?v=1&csvType=full&useColumnShortNames=true";
 
-
+const owid1 = document.getElementById("owid1")
+const owid2 = document.getElementById("owid2")
+  
+if (owid1 && owid2) {
 fetch(urlOWID)
   .then((response) => response.text())
   .then((data) => printOWIDChart(data));
+}
 
 function printOWIDChart(dataOWID) {
 
@@ -118,12 +122,12 @@ function printOWIDChart(dataOWID) {
 const togoData = values
   .filter(row => row[0] === "Togo" &&
     Number(row[2]) > 0 &&
-    Number(row[3]) > 0)
+    Number(row[3]) > 0
+  )
   .map(row => ({
     x: Number(row[2]), // År
-    y: Number(row[3]) // Vatten
-    
-}))
+    y: Number(row[3]) // Vatten 
+  }))
 
 const swedenData = values
   .filter(row => row[0] === "Sweden" &&
@@ -132,26 +136,25 @@ const swedenData = values
   )
   .map(row => ({
     x: Number(row[2]), // År
-    y: Number(row[3]) // Vatten
-    
-}))
+    y: Number(row[3]) // Vatten  
+  }))
 
 new Chart(document.getElementById("owid2"), {
     type: "line",
     data: {
       datasets: [
         {
-          label: "Togo",
-          data: togoData,
-          borderColor: "rgb(18, 64, 89)",
-          backgroundColor: "rgb(56, 100, 123)",
-          borderWidth: 3
-        },
-        {
           label: "Sverige",
           data:swedenData,
           borderColor: "rgb(163, 102, 36)",
           backgroundColor: "rgb(176, 129, 78)", 
+          borderWidth: 3
+        },
+        {
+          label: "Togo",
+          data: togoData,
+          borderColor: "rgb(18, 64, 89)",
+          backgroundColor: "rgb(56, 100, 123)",
           borderWidth: 3
         }
       ]
@@ -193,6 +196,103 @@ new Chart(document.getElementById("owid2"), {
           },
            ticks: {
           callback: (value) => value.toFixed(0) + "%"
+          }
+        }
+      }
+    }
+})
+
+/* LINJEDIAGRAM  */
+
+const togoWater = values
+  .filter(row => row[0] === "Togo" &&
+    Number(row[2]) > 0 &&
+    Number(row[3]) > 0
+  )
+  .map(row => ({
+    x: Number(row[2]), // År
+    y: Number(row[3]) // Vatten   
+  }))
+
+const togoGDP = values
+  .filter(row => row[0] === "Togo" &&
+    Number(row[2]) > 0 &&
+    Number(row[4]) > 0
+  )
+  .map(row => ({
+    x: Number(row[2]),
+    y: Number(row[4])
+  }))
+
+new Chart(document.getElementById("owid3"), {
+    type: "line",
+    data: {
+      datasets: [
+        {
+          label: "Vattentillgång (%)",
+          data: togoWater,
+          borderColor: "rgb(163, 102, 36)",
+          backgroundColor: "rgb(176, 129, 78)", 
+          borderWidth: 3
+        },
+        {
+          label: "BNP per capita",
+          data: togoGDP,
+          borderColor: "rgb(18, 64, 89)",
+          backgroundColor: "rgb(56, 100, 123)",
+          borderWidth: 3,
+          yAxisID: "y1"
+        }
+      ]
+    },
+    options: {
+      plugins: {
+        legend:{
+          position: "right",
+          labels: {
+            boxWidth: 12,
+            padding: 20
+          }
+        },
+        tooltip: {
+          callbacks: {
+            title: function(context) {
+              return "År: " + context[0].raw.x
+            },
+            label: function(context) {
+              return( 
+                " | Vatten: " + context.raw.y.toFixed(2) + "%" //kanske byta till "Number(context.raw.y).toFixed(2)"
+              )
+            }
+          }
+        }  
+      },
+      scales: {
+        x: {
+          type: "linear", 
+          ticks: {
+            callback: (value) => Number(value)
+          }
+        },
+        y:{
+          title: {
+            display: true,
+            text: "Tillgång till rent vatten (%)",
+             padding: 16,
+          },
+           ticks: {
+          callback: (value) => value.toFixed(0) + "%"
+          }
+        },
+        y1: {
+          type: "logarithmic",
+          position: "right",
+          title: {
+            display: true,
+            text: "BNP per capita"
+          }, 
+          grid: {
+            drawOnChartArea: false
           }
         }
       }

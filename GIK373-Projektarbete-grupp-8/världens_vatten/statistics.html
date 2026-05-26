@@ -65,21 +65,12 @@
             <div class="container">
                 <div class="content">
                     <h2 class="vizualisation-title">Linjediagram</h2> 
-                    <p>Spridningsdiagrammet visar en korrelation mellan ett lands BNP och procentuella mängd rent dricksvatten. Utöver några outliers finns ett starkt positivt samband mellan rikare länder och tillgång till rent vatten. Trots att en stor del av länderna befinner sig i den övre procentandelen finns det flera som befinner sig vid en tillgång till dricksvatten på 85 procent eller mindre, där Afrika är överrepresenterat. Fattigare länder saknar den infrastruktur, teknik och finansiering som bidrar till säkert dricksvatten ( Shadabi; A Ward, 2022).</p>
+                    <p>Linjediagrammet visar utvecklingen av tillgången till rent dricksvatten i Togo jämfört med Sverige. Sverige ligger stabilt på en mycket hög nivå, omkring 99 %, vilket visar att nästan hela befolkningen haft tillgång till rent dricksvatten under hela perioden. Togo visar en till en början extremt låg tillgänglighet till rent vatten, men som med tiden har ökat markant. Detta till följd av Togos stora förändringar av “infrastruktur.. Bla bla” (källa). Under den tid som de globala målen varit i kraft har stora förändringar skett under kort tid, detta blir tydligt när man kollar över tid.</p>
                 </div>
                 <div class="chart">
                     <canvas id="owid2"></canvas>
                 </div>
-            </div>
-            <div class="container">
-                <div class="content">
-                    <h2 class="vizualisation-title">Världskarta</h2> 
-                    <p>Världskartan visar att det är en stor skillnad i tillgången till rent vatten mellan olika regioner. I Afrika, särskilt i de södra delarna, är tillgången till rent vatten betydligt lägre än i andra delar av världen. I Europa, Nordamerika och Australien är tillgången till rent vatten generellt sett mycket högre. Detta kan bero på faktorer som ekonomisk utveckling, infrastruktur och klimatförhållanden ( Shadabi; A Ward, 2022).</p>
-                </div>
-                <div class="chart">
-                <canvas id="owidMap"></canvas>
-            </div>
-            </div>
+            </div>   
         </section>
 
         <!-- Footer section -->
@@ -101,11 +92,6 @@
     </main>
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://unpkg.com/chartjs-chart-geo@4.3.4/build/index.umd.min.js"></script>
-    <script>
-        // Registrerar kartkomponenter innan script.js körs
-        Chart.register(ChartGeo.ChoroplethController, ChartGeo.GeoFeature, ChartGeo.ColorScale, ChartGeo.ProjectionScale);
-    </script>
     <script src="script.js"></script>
 </body>
 </html>

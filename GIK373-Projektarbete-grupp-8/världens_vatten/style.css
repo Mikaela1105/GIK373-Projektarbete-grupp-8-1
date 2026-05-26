@@ -305,7 +305,7 @@ section {
 
 /* About section styling */
 .about-section {
-    padding: 120px 0;
+    padding: 100px;
     background: var(--light-beige-color);
 }
 
@@ -328,10 +328,67 @@ section {
 }
 
 .about-section .about-details .text {
-    line-height: 30px;
+    line-height: 25px;
     margin: 50px 0 30px;
     text-align: left;
-    font-size: var(--font-size-m);
+    font-size: var(--font-size-s);
+    width: 500px;
+}
+
+/* Map section styling */
+
+.map-section{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    background: #eff0f4;
+    padding: 120px;
+}
+
+.map-section .content {
+    flex: 1;
+    line-height: 25px;
+    font-size: var(--font-size-s);
+    max-width: 320px;
+}
+
+.map-section .map-title {
+    padding: 0 0 20px 0;
+}
+
+.map-section .chart {
+    flex: 1;
+}
+
+/* Homepage image styling */
+
+.home-image-wraper{
+    position: relative;
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.home-image-wraper::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        transparent
+        ),
+        rgba(29, 87, 188, 0.2);
+}
+
+.home-image-wraper .image-homepage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 0;
 }
 
 /* Facts section styling */
@@ -514,6 +571,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 100px;
+    padding: 120px;
 }
 
 .vizualistation-section .container {

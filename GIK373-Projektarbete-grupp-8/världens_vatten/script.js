@@ -115,7 +115,7 @@ function printOWIDChart(dataOWID) {
   console.log(values)
 
 //Linjediagram
-const eritreaData = values
+const togoData = values
   .filter(row => row[0] === "Togo" &&
     Number(row[2]) > 0 &&
     Number(row[3]) > 0)
@@ -142,16 +142,16 @@ new Chart(document.getElementById("owid2"), {
       datasets: [
         {
           label: "Togo",
-          data: eritreaData,
-          borderColor: "rgba(46, 141, 146, 0.72)",
-          backgroundColor: "rgba(63, 160, 165, 0.84)",
+          data: togoData,
+          borderColor: "rgb(18, 64, 89)",
+          backgroundColor: "rgb(56, 100, 123)",
           borderWidth: 3
         },
         {
           label: "Sverige",
           data:swedenData,
-          borderColor: "rgba(165, 127, 45, 0.72)",
-          backgroundColor: "rgba(190, 138, 60, 0.84)",
+          borderColor: "rgb(163, 102, 36)",
+          backgroundColor: "rgb(176, 129, 78)", 
           borderWidth: 3
         }
       ]
@@ -249,7 +249,7 @@ new Chart(document.getElementById("owid1"), {
     plugins: {   
       legend:{
           position: "right",
-          align: "top",
+          align: "start",
           labels: {
             boxWidth: 12,
             padding: 15
@@ -315,7 +315,7 @@ function printWorldMap(countries, csvData) {
   const data = rows.map(row => row.split(","));
   const values = data.slice(1);
 
-  const targetYearData = values.filter(row => Number(row[2]) === 2021);
+  const targetYearData = values.filter(row => Number(row[2]) === 2024);
 
   const waterAcessMap = {};
   targetYearData.forEach(row => {
@@ -323,8 +323,11 @@ function printWorldMap(countries, csvData) {
     const waterAccess = Number(row[3]);
     waterAcessMap[countryName] = waterAccess;
   });
+  const nameFix= {
+    "United States of America": "United States"
+  }
   const mapData = countries.map((feature) => {
-    const countryName = feature.properties.name;
+    const countryName = nameFix[feature.properties.name] || feature.properties.name;
     return {
       feature: feature,
       value: waterAcessMap[countryName] || 0
@@ -342,13 +345,6 @@ function printWorldMap(countries, csvData) {
     },
     options: {  
       plugins: {
-        title: {
-          display: true,
-          text: "Världskarta: Global tillgång till rent vatten år 2021(%)",
-          font: {
-            size: 16
-          }
-        },
         legend: {
           display: false 
         },
@@ -371,9 +367,12 @@ function printWorldMap(countries, csvData) {
         },
         color: {
           axis: "x",
-          quantize: 5,
+          interpolate: (v) => {
+          const value = v * 100;
+          return `hsl(200, 70%, ${95 - value * 0.8}%)`
+          },
           legend: {
-            position: "bottom-right"
+            position: "top-right"
           }
         }
       }

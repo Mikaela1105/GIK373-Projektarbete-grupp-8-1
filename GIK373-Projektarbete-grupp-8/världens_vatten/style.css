@@ -572,8 +572,20 @@ section {
     height: 100%;
     object-fit: cover;
 }
-
 /* Statistic content section styling */
+.about-vizualisation-section {
+    padding: 100px;
+    background: var(--light-beige-color);
+}
+
+.about-vizualisation-section .section-content{
+    max-width: 700px;
+}
+
+.about-vizualisation-section .vizualisation-title{
+    max-width: 2000px;
+}
+
 
 .vizualistation-section {
     background: #eff0f4;

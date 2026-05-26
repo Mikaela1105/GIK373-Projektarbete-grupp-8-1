@@ -216,7 +216,7 @@ const togoWater = values
 
 const togoGDP = values
   .filter(row => row[0] === "Togo" &&
-    Number(row[2]) > 0 &&
+    Number(row[2]) > 1999 &&
     Number(row[4]) > 0
   )
   .map(row => ({
@@ -231,15 +231,15 @@ new Chart(document.getElementById("owid3"), {
         {
           label: "Vattentillgång (%)",
           data: togoWater,
-          borderColor: "rgb(163, 102, 36)",
-          backgroundColor: "rgb(176, 129, 78)", 
+          borderColor: "rgb(18, 64, 89)",
+          backgroundColor: "rgb(56, 100, 123)",
           borderWidth: 3
         },
         {
           label: "BNP per capita",
           data: togoGDP,
-          borderColor: "rgb(18, 64, 89)",
-          backgroundColor: "rgb(56, 100, 123)",
+          borderColor: "rgb(163, 102, 36)",
+          backgroundColor: "rgb(176, 129, 78)",
           borderWidth: 3,
           yAxisID: "y1"
         }

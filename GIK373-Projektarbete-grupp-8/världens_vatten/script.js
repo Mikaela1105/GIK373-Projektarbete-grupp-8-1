@@ -156,11 +156,8 @@ new Chart(document.getElementById("owid2"), {
         }
       ]
     },
-
     options: {
-
       plugins: {
-
         legend:{
           position: "right",
           labels: {
@@ -168,7 +165,6 @@ new Chart(document.getElementById("owid2"), {
             padding: 20
           }
         },
-
         tooltip: {
           callbacks: {
             title: function(context) {
@@ -182,16 +178,13 @@ new Chart(document.getElementById("owid2"), {
           }
         }  
       },
-
       scales: {
         x: {
           type: "linear", // ÄNDRA TILL CATEGORY?
-          
           ticks: {
             callback: (value) => Number(value)
           }
         },
-
         y:{
           title: {
             display: true,
@@ -243,24 +236,17 @@ console.log(scatterData);
 new Chart(document.getElementById("owid1"), {
   type: "scatter",
   data: {
-
     datasets: [
-
       filterContinent("Europe", "rgba(20, 128, 236, 0.57)"),
       filterContinent("Asia", "rgba(128, 18, 206, 0.5)"),
       filterContinent("Africa", "rgba(255, 162, 12, 0.62)"),
       filterContinent("North America", "rgba(228, 119, 148, 0.69)"),
       filterContinent("South America", "rgba(22, 105, 60, 0.61)"),
       filterContinent("Oceania", "rgba(32, 196, 196, 0.76)"),
-
-
     ]
   },
-
   options: {
-
-    plugins: {
-        
+    plugins: {   
       legend:{
           position: "right",
           align: "top",
@@ -269,7 +255,6 @@ new Chart(document.getElementById("owid1"), {
             padding: 15
           }
         },
-
       tooltip: {
           callbacks: {
             label: function(context) {
@@ -280,12 +265,10 @@ new Chart(document.getElementById("owid1"), {
                 " | BNP: " +
                 Math.round(context.raw.y).toLocaleString("sv-SE")
               );
-
             }
           }
         } 
       },
-
     scales: {
       x: {
         title: {
@@ -297,7 +280,6 @@ new Chart(document.getElementById("owid1"), {
           callback: (value) => value.toFixed(0) + "%"
         }
       },
-
       y: {
         type: "logarithmic",
         title: {
@@ -369,7 +351,6 @@ function printWorldMap(countries, csvData) {
         },
         legend: {
           display: false 
-
         },
         tooltip: {
           callbacks: {

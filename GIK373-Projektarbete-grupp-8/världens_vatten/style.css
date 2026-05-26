@@ -134,6 +134,15 @@ header .navbar {
     color: var(--white-color);
 }
 
+.navbar .nav-menu .nav-link.active {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.navbar .nav-menu .nav-link.active:hover {
+    text-decoration: none;
+}
+
 .navbar :where(#menu-close-button, #menu-open-button) {
     display: none;
 }

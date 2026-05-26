@@ -4,8 +4,8 @@ function openPanel(panel) {
         document.title = "Världens vatten";
     } else if (panel === "about") {
         document.title = "Världens vatten - Om oss";
-    } else if (panel === "facts") {
-        document.title = "Världens vatten - Fakta";
+    } else if (panel === "school") {
+        document.title = "Världens vatten - Vatten i skolan";
     } else if (panel === "statistics") {
         document.title = "Världens vatten - Statistik";
     } else if (panel === "resources") {

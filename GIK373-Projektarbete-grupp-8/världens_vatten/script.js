@@ -481,9 +481,15 @@ function printWorldMap(countries, csvData) {
         },
         color: {
           axis: "x",
+          min: 0,
+          max: 100,
           interpolate: (v) => {
           const value = v * 100;
           return `hsl(200, 70%, ${95 - value * 0.8}%)`
+          },
+          ticks: {
+            stepSize: 25,
+            callback: (value) => value + "%"
           },
           legend: {
             position: "top-right"

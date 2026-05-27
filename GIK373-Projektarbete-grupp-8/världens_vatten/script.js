@@ -65,7 +65,19 @@ window.addEventListener("scroll", function () {
     }
 });
 
-// Scroll to top 
+window.addEventListener("scroll", function () {
+    const breadcrumbs = this.document.getElementById("breadcrumbs");
+    if (breadcrumbs) {
+        if (window.scrollY > 50) {
+            breadcrumbs.classList.add("scrolled");
+        } else {
+            breadcrumbs.classList.remove("scrolled");
+        }
+    }
+});
+
+
+// Scroll to top button
 let calcScrollValue = () => {
   let scrollProgress = document.getElementById("progress");
   let progressValue = document.getElementById("progress-value");

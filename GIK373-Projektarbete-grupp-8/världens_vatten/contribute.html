@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Världens vatten - Gör skillnad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header / Navbar -->
+    <header>
+     <nav class="navbar section-content">
+            <a href="index.html" class="nav-logo">
+                <img src="img/logotype.png" alt="logotype" class="logotype">
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times"></button> <!-- byt namn på class, glöm ej css-->
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" onclick="openPanel('home')">Hem</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contribute.html" class="nav-link active" onclick="openPanel('contribute')">Gör skillnad</a>
+                </li>
+                <li class="nav-item">
+                    <a href="school.html" class="nav-link" onclick="openPanel('school')">Vatten i skolan</a>
+                </li>
+                <li class="nav-item">
+                    <a href="world.html" class="nav-link" onclick="openPanel('world')">Vatten i världen</a>
+                </li>
+                <li class="nav-item">
+                    <a href="resources.html" class="nav-link" onclick="openPanel('resources')">Referenser</a>
+                </li>
+            </ul>
+            <button id="menu-open-button" class="fas fa-bars"></button>
+        </nav>
+    </header>
+
+    <!-- Main section -->
+    <main>
+        <!-- Scroll to top button -->
+        <div id="progress">
+            <i id="progress-value" class="fa-solid fa-arrow-up"></i>
+        </div>
+
+        <!-- Start section -->
+        <section class="statistics-start">
+            <img class="img-start" src="img/boy-washing-face.jpg"></img>
+            <div class="content">
+                <h1 class="title"><span>Vatten </span><br>och sanitet<br>världen över</h1>
+            </div>
+        </section>
+
+        <!-- About vizualisation section -->
+        <section class="about-vizualisation-section" id="about-vizualisation">
+            <div class="section-content">
+                <div class="vizualisation-title">
+                    <h2 class="section-title">Statistik över vattentillgänglighet världen över</h2>
+                </div>
+                <p>Att ha tillgång till rent vatten är en mänsklig rättighet, trots det saknar ca 844 miljoner människor grundläggande källa till dricksvatten och av dessa ca 115 miljoner som tvingas hämta förorenat dricksvatten ur öppna källor så som sjöar, floder och dammar. Detta får allvarliga konsekvenser på människors hälsa och skapar dödliga sjukdomar så som kolera och diarrésjukdomar (unicef, 2024). Kartan över den globala tillgången till rent dricksvatten ger insikten att fattiga områden generellt är de som saknar tillgång till rent vatten. Statistiken visad nedan från Our World in Data tydliggör att ett lands rikedom, mätt i BNP, har ett samband med vattentillgängligheten.</p>
+            </div>
+        </section>    
+        <!-- Vizualistation section -->
+        <section class="vizualistation-section" id="vizualistation">
+            <div class="container">
+                <div class="content">
+                    <h2 class="vizualisation-title">Togos utveckling av BNP i förhållande till vattentillgång</h2> 
+                    <p>Grafen visar ett positivt samband mellan Togos BNP och tillgång till rent vatten över tid, där båda variablerna förbättras. Det betyder att tillgången till rent vatten förbättras i takt med tillväxt av ekonomin och tyder på att landets rikedom haft en stor påverkan på vattentillgången. Samtidigt är sambandet inte perfekt linjärt vilket ger insikten att ekonomisk tillväxt inte är den enda faktorn som styr vattentillgång. Detta stödjer studien om att infrastruktur, teknik och finansiering bidrar till säkert vatten (Shadabi; A Ward, 2022).</p>
+                </div>
+            </div>  
+        </section>
+
+        <!-- Footer section -->
+        <footer class="footer-section">
+            <div class="section-content">
+                <p class="copyright-text">© 2026 Water & Sanitation</p>
+                <div class="social-link-list">
+                    <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+                <p class="policy-text">
+                    <a href="#" class="policy-link">Privacy policy</a>
+                    <span class="seperator">.</span>
+                    <a href="#" class="policy-link">Refund policy</a>
+                </p>
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

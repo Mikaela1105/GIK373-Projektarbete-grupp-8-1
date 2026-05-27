@@ -434,6 +434,8 @@ function printWorldMap(countries, csvData) {
     };
   });
 
+  console.log(mapData)
+
   new Chart(document.getElementById("owidMap"), {
     type: "choropleth",
     data: { 

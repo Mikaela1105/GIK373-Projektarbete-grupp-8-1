@@ -579,13 +579,12 @@ section {
 }
 
 .about-vizualisation-section .section-content{
-    max-width: 700px;
+    max-width: 600px;
 }
 
 .about-vizualisation-section .vizualisation-title{
     max-width: 2000px;
 }
-
 
 .vizualistation-section {
     background: #eff0f4;

@@ -3,9 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Referenser</title>
+    <!-- Linking Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+  <!-- Header / Navbar -->
+    <header>
+        <nav class="navbar section-content">
+            <a href="#" class="nav-logo">
+                <img src="img/logotype.png" alt="logotype" class="logotype">
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times"></button> <!-- byt namn på class, glöm ej css-->
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" onclick="openPanel('home')">Hem</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contribute.html" class="nav-link" onclick="openPanel('contribute')">Gör skillnad</a>
+                </li>
+                <li class="nav-item">
+                    <a href="school.html" class="nav-link" onclick="openPanel('school')">Vatten i skolan</a>
+                </li>
+                <li class="nav-item">
+                    <a href="world.html" class="nav-link" onclick="openPanel('world')">Vatten i världen</a>
+                </li>
+                <li class="nav-item">
+                    <a href="resources.html" class="nav-link active" onclick="openPanel('resources')">Referenser</a>
+                </li>
+            </ul>
+
+            <button id="menu-open-button" class="fas fa-bars"></button>
+        </nav>
+    </header>
+<!-- Main section -->
+    <main>
+        <!-- Scroll to top button -->
+        <div id="progress">
+            <i id="progress-value" class="fa-solid fa-arrow-up"></i>
+        </div>
+
+        <!-- Start section -->
+        <section class="statistics-start">
+            <img class="img-start" src="img/girl-drinking.jpg"></img>
+            <div class="content">
+                <h1 class="title"><span>Våra </span> <br>Refernser </h1>
+            </div>
+        </section>
+
+        <!-- lägga till refrenser här -->
+         <section class="references-section">
+            <div class="section-content">
+                <h2 class="section-title">Referenser</h2>
+                <ul class="references-list">
+                    <li class="reference-item">UNICEF Sverige. (2024). Vatten, sanitet och hygien. https://unicef.se/ren-och-trygg-miljo/vatten-sanitet-och-hygien   </li>
+                    <li class="reference-item">Shadabi, L., & Ward, F. A. (2022) Predictors of access to safe drinking water: policy implications. Water policy, 24(6), 1034. https://doi.org/10.2166/wp.2022.037 </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Footer section -->
+        <footer class="footer-section">
+            <div class="section-content">
+                <p class="copyright-text">© 2026 Water & Sanitation</p>
+                <div class="social-link-list">
+                    <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+                <p class="policy-text">
+                    <a href="#" class="policy-link">Privacy policy</a>
+                    <span class="seperator">.</span>
+                    <a href="#" class="policy-link">Refund policy</a>
+                </p>
+            </div>
+        </footer>
+        </main>   
 </body>
 </html>

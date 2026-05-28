@@ -663,6 +663,36 @@ section {
     flex: 1;
 }
 
+/* charity section content styling */
+
+.charity-section {
+    background: #eff0f4;
+    display: flex;
+    flex-direction:row;
+    gap: 50px;
+    padding: 120px;
+}
+
+.charity-section .container {
+    border-radius: var(--border-radius-m);
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+    25px 35px 20px rgba(0, 0, 0, 0.05),
+    25px 30px 30px rgba(0, 0, 0, 0.05),
+    inset -20px -20px 25px rgba(255, 255, 255, 0.68);
+}
+
+.charity-section .content {
+    flex: 1;
+    line-height: 25px;
+    font-size: var(--font-size-s);
+    max-width: 320px;
+}
+
 /* Footer section styling */
 .footer-section {
     padding: 20px 0;
@@ -814,10 +844,19 @@ section {
         max-width: 100%;
     }
 
-    .about-section .section-content {
+   /*  .about-section .section-content {
         gap: 40px;
+        column-count: 2;
+        column-gap: 40px;
         flex-direction: column-reverse;
         align-items: center;
+    } */
+    .about-section .section-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        /* flex-direction: column-reverse; */
+        align-items: start;
     }
 
     .map-section .section-content {

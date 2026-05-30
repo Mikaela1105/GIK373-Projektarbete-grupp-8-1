@@ -405,8 +405,7 @@ new Chart(document.getElementById("owid1"), {
       }
     }
   }
-}); 
-
+});
 }
 
 // HeatMap
@@ -498,4 +497,175 @@ function printWorldMap(countries, csvData) {
       }
     }
   });
+}
+
+/* ------------------------------ School section ------------------------------ */
+/* Read more button */
+const button = document.getElementById("readMoreBtn");
+const buttonText = document.getElementById("buttonText");
+const extraText = document.getElementById("extraText");
+const arrow = document.getElementById(".arrow");
+
+button.addEventListener("click", () => {
+  extraText.classList.toggle("hidden");
+
+  const expanded = !extraText.classList.contains("hidden");
+
+  button.textContent = expanded ? "Visa mindre" : "Datakälla";
+  arrow.classList.toggle("rotate");
+});
+
+
+// Bar chart
+
+// Här hämtas statistik från Our World In data (en hemsida).
+// Data tilldelas i variabeln urlOWID med const (const eftersom variabeln inte ska ändras).
+const urlOWIDSchool = "https://ourworldindata.org/grapher/schools-access-drinking-water.csv?v=1&csvType=full&useColumnShortNames=true";
+
+if (document.getElementById("owidBar")) {
+  fetch(urlOWIDSchool)
+    .then(response => response.text())
+    .then(data => printSchoolChart(data));
+  }
+
+/* En funktion = en samling instruktioner (ett recept)
+Funktionen namnges till printOWIDChart och informationen som skickas in är från dataOWD.*/
+function printSchoolChart(dataOWIDSchool) {
+    // Dela upp i Java strängarna, varje gång en ny rad kommer.
+    const rows = dataOWIDSchool.split("\n");
+
+    // Dela upp varje rad i kolumner efter varje ",".
+    const data = rows.map(
+        row => row.split(",")
+    );
+    
+    // Ta bort första raden eftersom den bara är rubriker.
+    const values = data.slice(1);
+    
+    /* Filter används för att filtrera ut data från datasetet. Den säger "behåll bara vissa element."
+    Här kollar man rad 2, vilket är årtal i datasetet */
+    const year2020 = values.filter(
+        row => Number(row[2]) === 2020
+    );
+    
+    // y-axelns titel-label tilldelas i variabeln "labels"
+    const labels = ["Gymnasie", "Högstadie", "Grundskola"];
+
+    // Två tomma arrayer (listor) där värde senare skall tilldelas.
+    const sweden = [];
+    const zimbabwe = [];
+
+    /* En loop som loopar igenom datan med året 2021
+    om det gäller Togo och Sverige, läggs datan in i arrayen. */
+    year2020.forEach(row => {
+        const country = row[0];
+        
+        if (country === "Sweden") {
+            sweden.push(
+                Number(row[4]),
+                Number(row[3]),
+                Number(row[5])
+            );
+        }
+        if (country === "Zimbabwe") {
+            zimbabwe.push(
+                Number(row[4]),
+                Number(row[3]),
+                Number(row[5])
+            );
+        }
+    });
+    
+    /* Här skapar vi ett nytt diagram av typen "bar".
+    Först försöker du hitta HTML-elementet med id "owid". */
+    new Chart(document.getElementById("owidBar"), {
+        type: "bar",
+        data: {
+            labels: labels,
+        // Stil på staplarna för Zimbabwe och Sverige.
+        datasets: [
+          {
+            label: "Sweden",
+            data: sweden,
+            borderWidth: 1.5,
+            barThickness: 30,
+            borderColor: "rgb(18, 64, 89)",
+            backgroundColor: "rgb(56, 100, 123)"
+          },
+          {
+            label: "Zimbabwe",
+            data: zimbabwe,
+            borderWidth: 1.5,
+            barThickness: 30,
+            borderColor: "rgb(163, 102, 36)",
+            backgroundColor: "rgb(176, 129, 78)"
+          }
+        ]},
+        
+        // Grafens utseende:
+        options: {
+            // Sätter padding för att 100% skall synas.
+            layout: {
+                padding: {
+                    right: 50
+                }
+            },
+
+            // Staplarna ska vila på y-axeln.
+            indexAxis: "y",
+
+            // Responsiv graf.
+            responsive: true,
+
+            // x-axelns skala skall vara procent från 0-100
+            scales: {
+                x: {
+                    min: 0,
+                    max: 100,
+                    ticks: {
+                        callback: value => value + "%"
+                    }
+                },
+
+                // Tar bort rutnät
+                y: {
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        },
+        
+        plugins: [{
+            // Möjliggör att rita ovanpå diagrammet
+            id: "valueLabels",
+
+            // En funktion som får siffrorna att synas i slutet av staplarna.
+            afterDatasetsDraw(chart) {
+                const { ctx } = chart;
+      
+                ctx.save();
+      
+                chart.data.datasets.forEach((dataset, datasetIndex) => {
+                    const meta = chart.getDatasetMeta(datasetIndex);
+      
+                    meta.data.forEach((bar, index) => {
+                        const value = dataset.data[index];
+      
+                        ctx.font = "13px sans-serif";
+                        ctx.fillStyle = "#555";
+                        ctx.textAlign = "left";
+                        ctx.textBaseline = "middle";
+      
+                        ctx.fillText(
+                            value + "%",
+                            bar.x + 10,
+                            bar.y
+                        );
+                    });
+                });
+                ctx.restore();
+            }
+        }]
+    });
 }

@@ -47,7 +47,9 @@
         <section class="home">
             <video class="video-slide active" src="videos/4.mp4" autoplay muted loop></video>
             <div class="content active">
-                <h1 class="title">Långt för att <br> hämta rent <br><span>vatten</span></h1>            </div>
+                <h1 class="title">Långt för att <br> hämta rent <br><span>vatten</span></h1>
+                <h2 class="description">Om skola, jämställdhet och kvinnors påverkan.</h2>
+            </div>
         </section>
 
         <!-- About section -->
@@ -58,7 +60,7 @@
                 </div>
                 <div class="about-details">
                     <h2 class="section-title">Om oss</h2>
-                    <p class="text">Har du reflekterat över att den tid det tar att läsa detta stycke motsvarar den tid som krävs för att resa sig från soffan, gå till köket och fylla ett glas med rent vatten?<br> <br>I många höginkomstländer betraktas tillgång till vatten som en självklarhet, men i ett globalt perspektiv utgör denna tillgång ett privilegium som långt ifrån alla människor har. Tillgång till vatten som en central förutsättning för den biologiska mångfalden och en hållbar utveckling (Globala målen, 2024). 844 miljoner människor saknar grundläggande källa till dricksvatten och 2,3 miljarder har bristfälliga sanitära faciliteter såsom latriner (Unicef, u.å.). <br> <br>Brist på grundläggande vatten och sanitet leder till allvarliga konsekvenser, såsom ökad ojämlikhet, hindrad ekonomisk utveckling, förhöjda konflikter, samt hälsoproblem såsom diarrésjukdomar och kolera (Sida, 2023). Särskilt utsatta är människor som lever i låginkomstländer och övervägande andel som drabbas är kvinnor och flickor som ansvarar för familjers vattenförsörjning (Globala målen, 2024).</p>
+                    <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere nostrum, repellendus accusantium laudantium quae eveniet aliquam dolorum, animi tempora deserunt, expedita ab assumenda vitae provident aperiam quas officia error. Voluptates.</p>
                 </div>
             </div>
         </section>
@@ -71,21 +73,27 @@
             </div>
         </div>
 
-        <!-- Map section -->
-        <section class="map-section" id="map">
+        <!-- Bar chart section -->
+        <section class="barChart-section" id="barChart">
             <div class="section-content">
-                <div class="map-details">
-                    <h2 class="section-title">Världskarta</h2> 
-                    <p class="text">Världskartan visar att det är en stor skillnad i tillgången till rent vatten mellan olika regioner. I Afrika, särskilt i de södra delarna, är tillgången till rent vatten betydligt lägre än i andra delar av världen. I Europa, Nordamerika och Australien är tillgången till rent vatten generellt sett mycket högre. Detta kan bero på faktorer som ekonomisk utveckling, infrastruktur och klimatförhållanden (Shadabi; A Ward, 2022).</p>
+                <div class="barChart-details">
+                    <h2 class="section-title">Tillgång till rent dricksvatten inom skolsystemen, 2021</h2> 
+                    <p class="text">Diagrammet visar att Zimbabwe har betydligt lägre tillgänglighet till rent vatten under 2021 på samtliga utbildningsnivåer i jämförelse med Sveriges 100% tillgång. Studien Cronk et al. (2021) presenterar att flertalet låg- och medelinkomstländer, däribland Zimbabwe, saknar grundläggande sanitet och rent vatten i anslutning till skolor. Detta stödjer visualiseringens resultat där det lägre medelinkomstlandet Zimbabwes samtliga utbildningsnivåer har mindre tillgång till vatten än industrilandet Sverige.</p>
+                    <p>
+                        <span id="extraText" class="hidden">
+                            Källan till visualiseringen av tillgång till rent vatten inom skolsystemen i Sverige respektive Zimbabwe är UNESCO hämtad från Our World in Data. Detta är en forsknings- och statistikplattform som samlar globala data om exempelvis utbildning, fattigdom, hälsa eller vatten och sanitet. Plattformen drivs av ett nära samarbete mellan forskare från Oxford Universitet och organisationen Global Change Data Lab (Our World in Data, u.å.).
+                        </span>
+                    </p>
+                    <button id="readMoreBtn">
+                        <span id="buttonText">Datakälla</span>
+                        <i class="fa-solid fa-angle-right arrow"></i>
+                    </button>
                 </div>
                 <div class="chart">
-                    <canvas id="owidMap"></canvas>
+                    <canvas id="owidBar"></canvas>
                 </div>
             </div>
         </section>
-
-
-        
 
         <!-- Footer section -->
         <footer class="footer-section">
@@ -94,7 +102,6 @@
                 <div class="social-link-list">
                     <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
                     <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
                 </div>
                 <p class="policy-text">
                     <a href="#" class="policy-link">Privacy policy</a>
@@ -104,6 +111,7 @@
             </div>
         </footer>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

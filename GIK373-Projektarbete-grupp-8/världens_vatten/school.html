@@ -3,9 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Världens vatten - School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <!-- Header / Navbar -->
+    <header>
+     <nav class="navbar section-content">
+            <a href="index.html" class="nav-logo">
+                <img src="img/logotype.png" alt="logotype" class="logotype">
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times"></button>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" onclick="openPanel('home')">Hem</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contribute.html" class="nav-link active" onclick="openPanel('contribute')">Gör skillnad</a>
+                </li>
+                <li class="nav-item">
+                    <a href="school.html" class="nav-link" onclick="openPanel('school')">Vatten i skolan</a>
+                </li>
+                <li class="nav-item">
+                    <a href="world.html" class="nav-link" onclick="openPanel('world')">Vatten i världen</a>
+                </li>
+                <li class="nav-item">
+                    <a href="resources.html" class="nav-link" onclick="openPanel('resources')">Referenser</a>
+                </li>
+            </ul>
+            <button id="menu-open-button" class="fas fa-bars"></button>
+        </nav>
+    </header>
+
+    <!-- Main section -->
+    <main>
+        <!-- Scroll to top button -->
+        <div id="progress">
+            <i id="progress-value" class="fa-solid fa-arrow-up"></i>
+        </div>
+
+        <!-- Home section -->
+        <section class="home">
+            <video class="video-slide active" src="videos/4.mp4" autoplay muted loop></video>
+            <div class="content active">
+                <h1 class="title">Långt för att <br> hämta rent <br><span>vatten</span></h1>            </div>
+        </section>
+
+        <!-- About section -->
+        <section class="about-section" id="about">
+            <div class="section-content">
+                <div class="about-image-wrapper">
+                    <img src="img/playing-with-water.jpg" alt="About" class="image-circle">
+                </div>
+                <div class="about-details">
+                    <h2 class="section-title">Om oss</h2>
+                    <p class="text">Har du reflekterat över att den tid det tar att läsa detta stycke motsvarar den tid som krävs för att resa sig från soffan, gå till köket och fylla ett glas med rent vatten?<br> <br>I många höginkomstländer betraktas tillgång till vatten som en självklarhet, men i ett globalt perspektiv utgör denna tillgång ett privilegium som långt ifrån alla människor har. Tillgång till vatten som en central förutsättning för den biologiska mångfalden och en hållbar utveckling (Globala målen, 2024). 844 miljoner människor saknar grundläggande källa till dricksvatten och 2,3 miljarder har bristfälliga sanitära faciliteter såsom latriner (Unicef, u.å.). <br> <br>Brist på grundläggande vatten och sanitet leder till allvarliga konsekvenser, såsom ökad ojämlikhet, hindrad ekonomisk utveckling, förhöjda konflikter, samt hälsoproblem såsom diarrésjukdomar och kolera (Sida, 2023). Särskilt utsatta är människor som lever i låginkomstländer och övervägande andel som drabbas är kvinnor och flickor som ansvarar för familjers vattenförsörjning (Globala målen, 2024).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Home video section -->
+        <div class="video-wrapper">
+            <video class="video" src="videos/running.mp4" autoplay muted loop></video>
+            <div class="content">
+                <h3 class="title">För att fler ska få möjlighet att<span> utbilda</span> sig</h3>
+            </div>
+        </div>
+
+        <!-- Map section -->
+        <section class="map-section" id="map">
+            <div class="section-content">
+                <div class="map-details">
+                    <h2 class="section-title">Världskarta</h2> 
+                    <p class="text">Världskartan visar att det är en stor skillnad i tillgången till rent vatten mellan olika regioner. I Afrika, särskilt i de södra delarna, är tillgången till rent vatten betydligt lägre än i andra delar av världen. I Europa, Nordamerika och Australien är tillgången till rent vatten generellt sett mycket högre. Detta kan bero på faktorer som ekonomisk utveckling, infrastruktur och klimatförhållanden (Shadabi; A Ward, 2022).</p>
+                </div>
+                <div class="chart">
+                    <canvas id="owidMap"></canvas>
+                </div>
+            </div>
+        </section>
+
+
+        
+
+        <!-- Footer section -->
+        <footer class="footer-section">
+            <div class="section-content">
+                <p class="copyright-text">© 2026 Water & Sanitation</p>
+                <div class="social-link-list">
+                    <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+                <p class="policy-text">
+                    <a href="#" class="policy-link">Privacy policy</a>
+                    <span class="seperator">.</span>
+                    <a href="#" class="policy-link">Refund policy</a>
+                </p>
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>

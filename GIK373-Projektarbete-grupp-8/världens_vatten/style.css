@@ -737,39 +737,6 @@ section {
     text-underline-offset: 4px;
 }
 
-/* References section styling */
-.references-section {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 120px;
-}
-.reference-item {
-    font-size: var(--font-size-s);
-    line-height: 1.6;
-    padding-left:30px;
-    border-left: 2px solid var(--secondary-color);
-    color: var(--dark-color);
-}
-
-.references-section .references-boxes {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
-}
-
-.references-section .ref-box {
-    flex: 1;
-    background: var(--white-color);
-    border-radius: var(--border-radius-m);
-    padding: 30px;
-    box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
-    25px 35px 20px rgba(0, 0, 0, 0.05),
-    25px 30px 30px rgba(0, 0, 0, 0.05),
-    inset -20px -20px 25px rgba(255, 255, 255, 0.68);
-}
-
 /* ----------------------------- MIKAELAS KOD ------------------------------ */
 /* .contribute-section {
     background: var(--light-beige-color);
@@ -804,6 +771,84 @@ section {
     font-size: var(--font-size-s);
 } */
 /* ------------------------------------------------------------------------- */
+
+/* References section styling */
+.references-section {
+    list-style: none;
+    padding: 120px;
+}
+
+.references-boxes .ref-box h2:not(ul) {
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.references-boxes .ref-box a {
+    text-decoration: none;
+    color: #305CDE;
+}
+
+.references-boxes .ref-box a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    color: #1E3D93;
+}
+
+.references-boxes .ref-box span {
+    font-style: italic;
+}
+
+.reference-item {
+    font-size: var(--font-size-s);
+    line-height: 1.7;
+    padding-left: 30px;
+    border-left: 2px solid var(--secondary-color);
+    color: var(--dark-color);
+    margin-bottom: 30px;
+    break-inside: avoid;
+}
+
+.references-section .references-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "video images"
+        "references references";
+    gap: 50px;
+}
+
+.references-section .ref-box:nth-child(1) {
+    grid-area: references;
+}
+
+.references-section .ref-box:nth-child(2) {
+    grid-area: video;
+}
+
+.references-section .ref-box:nth-child(3) {
+    grid-area: images;
+}
+
+.references-section .ref-box:first-child {
+    width: 100%;
+}
+
+.references-section .ref-box:first-child .references-list {
+    columns: 2;
+    column-gap: 50px;
+}
+
+.references-section .ref-box {
+    flex: 1;
+    background: var(--white-color);
+    border-radius: var(--border-radius-m);
+    padding: 30px;
+    box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+    25px 35px 20px rgba(0, 0, 0, 0.05),
+    25px 30px 30px rgba(0, 0, 0, 0.05),
+    inset -20px -20px 25px rgba(255, 255, 255, 0.68);
+}
 
 /* School section styling */
 .home .content .title {

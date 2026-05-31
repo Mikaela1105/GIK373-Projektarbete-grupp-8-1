@@ -671,33 +671,36 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 32px;
+    align-items: stretch;
 }
 
 .card-section .card-container .card-article {
-    position: relative;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     width: calc(100% / 3 - 32px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: var(--border-radius-m);
+    overflow: hidden;
 }
 
 .card-img {
     display: block;
     width: 100%;
-    border-radius: var(--border-radius-m);
+    height: 280px;
+    object-fit: cover;
 }
 
 .card-data {
-    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
     background-color: var(--white-color);
     padding: 1.5rem 2rem;
-    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
-    border-radius: var(--border-radius-m);
-    position: absolute;
-    bottom: -30rem;
-    left: 0;
-    right: 0;
-    margin-inline: auto;
-    opacity: 0;
-    transition: opacity 1s 1s;
+
+    width: 100%;
+    margin: -80px auto 0;
+    position: relative;
 }
 
 .card-title {
@@ -710,16 +713,22 @@ section {
     display: block;
     font-size: var(--font-size-s);
     margin-bottom: .25rem;
+    line-height: 1.4;
 }
 
 .card-description span {
     font-weight: var(--font-weight-semibold);
 }
 
+.small-text {
+    font-size: var(--font-size-xs);
+}
+
 .card-button {
     text-decoration: none;
     font-size: var(--font-size-s);
     color: var(--secondary-color);
+    margin-top: auto;
 }
 
 .card-button:hover {
@@ -728,26 +737,7 @@ section {
     text-underline-offset: 4px;
 }
 
-.card-article:hover .card-data {
-    animation: show-data 1s forwards;
-    opacity: 1;
-    transition: opacity .3s;
-}
-
-.card-article:hover {
-    animation: remove-overflow 2s forwards;
-}
-
-.card-article:not(:hover) {
-    animation: show-overflow 2s forwards;
-}
-
-.card-article:not(:hover) .card-data {
-    animation: remove-data 1s forwards;
-}
-
 /* References section styling */
-
 .references-section {
     list-style: none;
     display: flex;
@@ -778,42 +768,6 @@ section {
     25px 35px 20px rgba(0, 0, 0, 0.05),
     25px 30px 30px rgba(0, 0, 0, 0.05),
     inset -20px -20px 25px rgba(255, 255, 255, 0.68);
-}
-@keyframes show-data {
-    50% {
-        transform: translateY(-10rem);
-    }
-    100% {
-        transform: translateY(-7rem);
-    }
-}
-
-@keyframes remove-overflow {
-    to {
-        overflow: initial;
-    }
-}
-
-@keyframes remove-data {
-    0% {
-        transform: translateY(-7rem);
-    }
-    50% {
-        transform: translateY(-10rem);
-    }
-    100% {
-        transform: translateY(.5rem);
-    }
-}
-
-@keyframes show-overflow {
-    0% {
-        overflow: initial;
-        pointer-events: none;
-    }
-    50% {
-        overflow: hidden;
-    }
 }
 
 /* ----------------------------- MIKAELAS KOD ------------------------------ */

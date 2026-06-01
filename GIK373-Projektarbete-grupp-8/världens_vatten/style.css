@@ -552,7 +552,7 @@ section {
 }
 
 .home-image-wrapper .content .bold {
-    font-style: var(--font-weight-bold);
+    font-weight: var(--font-weight-semibold);
 }
 
 .home-image-wrapper .content .resources {
@@ -782,7 +782,7 @@ section {
     flex: 1;
 }
 
-/* Charity section styling */
+/* Contribute section styling */
 .card-section .card-container {
     display: flex;
     flex-wrap: wrap;

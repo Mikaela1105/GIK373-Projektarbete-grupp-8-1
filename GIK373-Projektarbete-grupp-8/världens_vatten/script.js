@@ -106,17 +106,21 @@ window.onload = calcScrollValue;
 const highIncome = document.getElementById("high-income");
 const lowIncome = document.getElementById("low-income");
 
-highIncome.addEventListener("click", () => {
-  document
-    .getElementById("high-income-modal")
-    .classList.add("modal-open");
-});
+if (highIncome) {
+  highIncome.addEventListener("click", () => {
+    document
+      .getElementById("high-income-modal")
+      .classList.add("modal-open");
+  });
+}
 
-lowIncome.addEventListener("click", () => {
-  document
-    .getElementById("low-income-modal")
-    .classList.add("modal-open");
-});
+if (lowIncome) {
+  lowIncome.addEventListener("click", () => {
+    document
+      .getElementById("low-income-modal")
+      .classList.add("modal-open");
+  });
+}
 
 document.querySelectorAll(".icon-close").forEach(button => {
   button.addEventListener("click", () => {
@@ -524,19 +528,23 @@ function printWorldMap(countries, csvData) {
 /* ------------------------------ School section ------------------------------ */
 /* Read more button */
 const button = document.getElementById("readMoreBtn");
-const buttonText = document.getElementById("buttonText");
+/* const buttonText = document.getElementById("buttonText"); */
 const extraText = document.getElementById("extraText");
 const arrow = document.getElementById(".arrow");
 
-button.addEventListener("click", () => {
-  extraText.classList.toggle("hidden");
+if (button && extraText) {
+  button.addEventListener("click", () => {
+    extraText.classList.toggle("hidden");
+  
+    const expanded = !extraText.classList.contains("hidden");
+  
+    button.textContent = expanded ? "Visa mindre" : "Datakälla";
 
-  const expanded = !extraText.classList.contains("hidden");
-
-  button.textContent = expanded ? "Visa mindre" : "Datakälla";
-  arrow.classList.toggle("rotate");
-});
-
+    if (arrow) {
+      arrow.classList.toggle("rotate");
+    }
+  });
+}
 
 // Bar chart
 

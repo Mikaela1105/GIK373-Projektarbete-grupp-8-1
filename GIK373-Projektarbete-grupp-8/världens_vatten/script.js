@@ -102,6 +102,28 @@ let calcScrollValue = () => {
 window.onscroll = calcScrollValue;
 window.onload = calcScrollValue;
 
+// Pop-up info modal
+const highIncome = document.getElementById("high-income");
+const lowIncome = document.getElementById("low-income");
+
+highIncome.addEventListener("click", () => {
+  document
+    .getElementById("high-income-modal")
+    .classList.add("modal-open");
+});
+
+lowIncome.addEventListener("click", () => {
+  document
+    .getElementById("low-income-modal")
+    .classList.add("modal-open");
+});
+
+document.querySelectorAll(".icon-close").forEach(button => {
+  button.addEventListener("click", () => {
+    button.closest(".modal").classList.remove("modal-open");
+  });
+});
+
 // Charts scatterplot och linjediagram
 const urlOWID =
   "https://ourworldindata.org/grapher/improved-water-sources-vs-gdp-per-capita.csv?v=1&csvType=full&useColumnShortNames=true";

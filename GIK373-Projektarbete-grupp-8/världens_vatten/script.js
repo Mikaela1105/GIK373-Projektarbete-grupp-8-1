@@ -720,4 +720,5 @@ function printSchoolChart(dataOWIDSchool) {
                 ctx.restore();
             }
         }]
-    });
+    });
+}

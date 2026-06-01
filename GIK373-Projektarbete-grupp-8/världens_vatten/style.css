@@ -858,7 +858,7 @@ section {
 }
 
 /* ----------------------------- MIKAELAS KOD ------------------------------ */
-/* .contribute-section {
+ .contribute-section {
     background: var(--light-beige-color);
 }
 
@@ -869,14 +869,14 @@ section {
     justify-content: space-between;
 }
 
-.charity-section {
+/* .charity-section {
     background: #eff0f4;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 50px;
     padding: 120px;
-}
-
+} */
+/*
 .charity-section .container {
     border-radius: var(--border-radius-m);
     padding: 30px;

@@ -400,7 +400,7 @@ new Chart(document.getElementById("owid1"), {
                 context.raw.country +
                 " | Vatten: " +
                 Math.round(context.raw.x) + "%" +
-                " | BNP: " +
+                " | BNP per capita: " + "$" +
                 Math.round(context.raw.y).toLocaleString("sv-SE")
               );
             }

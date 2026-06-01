@@ -460,10 +460,24 @@ function printWorldMap(countries, csvData) {
     const waterAccess = Number(row[3]);
     waterAcessMap[countryName] = waterAccess;
   });
+
+/* Fixas med 0 data/White i kartan */
   const nameFix= {
     "United States of America": "United States",
+    "Dem. Rep. Congo": "Congo, Dem. Rep.",
+    "Dem. Rep. Congo": "Congo",
+    "S. Sudan": "South Sudan",
+    "Central African Rep.": "Central African Republic",
   }
-  const mapData = countries.map((feature) => {
+console.log(Object.keys(waterAcessMap).filter(n => n.includes("United States")))
+console.log(Object.keys(waterAcessMap).filter(n => n.includes("Sudan")))
+console.log(Object.keys(waterAcessMap).filter(n => n.includes("Congo")))
+console.log(Object.keys(waterAcessMap).filter(n => n.includes("Dem. Rep. Congo")))
+console.log(Object.keys(waterAcessMap).filter(n => n.includes("Central African Rep.")))
+
+/* ----------- */
+
+const mapData = countries.map((feature) => {
     const countryName = nameFix[feature.properties.name] || feature.properties.name;
     return {
       feature: feature,
@@ -697,5 +711,4 @@ function printSchoolChart(dataOWIDSchool) {
                 ctx.restore();
             }
         }]
-    });
-}
+    });

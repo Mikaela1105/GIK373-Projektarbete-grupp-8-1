@@ -209,7 +209,7 @@ new Chart(document.getElementById("owid2"), {
     options: {
       plugins: {
         legend:{
-          position: "right",
+          position: "top",
           labels: {
             boxWidth: 12,
             padding: 20
@@ -295,7 +295,7 @@ new Chart(document.getElementById("owid3"), {
     options: {
       plugins: {
         legend:{
-          position: "right",
+          position: "top",
           labels: {
             boxWidth: 12,
             padding: 20

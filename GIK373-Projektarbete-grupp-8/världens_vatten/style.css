@@ -404,15 +404,25 @@ section {
 }
 
 .about-section .about-details span,
-.about-vizualisation-section .vizualisation-title span {
+.about-vizualisation-section .vizualisation-title span,
+.contribute-section .section-content a,
+.references-boxes .ref-box a {
     color: #305CDE;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.contribute-section .section-content a:hover,
+.references-boxes .ref-box a:hover {
+    text-decoration: underline;
     text-underline-offset: 4px;
+    color: #1E3D93;
 }
 
 .about-section .about-details span:hover,
 .about-vizualisation-section .vizualisation-title span:hover {
-    text-decoration: underline;
-
+    text-decoration: none;
+    color: #1E3D93;
 }
 
 .modal {
@@ -904,17 +914,6 @@ section {
     margin-bottom: 30px;
     text-transform: uppercase;
     text-align: center;
-}
-
-.references-boxes .ref-box a {
-    text-decoration: none;
-    color: #305CDE;
-}
-
-.references-boxes .ref-box a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    color: #1E3D93;
 }
 
 .references-boxes .ref-box span {

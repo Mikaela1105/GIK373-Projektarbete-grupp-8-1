@@ -329,53 +329,6 @@ section {
     color: var(--dark-color);
 }
 
-/* Breadcrumbs section styling */
-/* .breadcrumbs {
-    visibility: hidden;
-    position: fixed;
-    background: transparent;
-    transition: background-color 0.5s ease;
-    z-index: 1000;
-    padding: 10px 20px;
-    width: fit-content;
-    border-radius: 0 var(--border-radius-s) var(--border-radius-s) 0;
-    margin: 103px 0 0 0;
-}
-
-.breadcrumbs.scrolled {
-    background-color: var(--white-color);
-    visibility: visible;
-}
-
-.breadcrumbs .container {
-    width: auto;
-    padding: 0px 20px 0px 20px;
-    display: flex;
-    list-style: none;
-    align-items: center;
-    margin: 0;
-    gap: 8px;
-}
-
-.breadcrumbs .container .content {
-    vertical-align: middle;
-    font-size: var(--font-size-s);
-}
-
-.breadcrumbs .container .content a,
-.breadcrumbs .container .content span {
-    text-decoration: none;
-    color: var(--secondary-color);
-}
-
-.breadcrumbs .container .content a:not(.icon):hover {
-    color: var(--primary-color);
-}
-
-.breadcrumbs .container .content:last-child {
-    font-weight: var(--font-weight-bold);
-} */
-
 /* About section styling */
 .about-section {
     background: var(--light-beige-color);
@@ -385,9 +338,9 @@ section {
 .map-section .section-content,
 .barChart-section .section-content {
     display: flex;
-    gap: 50px;
+    gap: 200px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .about-section .about-details {
@@ -534,7 +487,7 @@ section {
 .home-image-wrapper .content {
     position: absolute;
     top: 50px;
-    left: 50px;
+    left: 60px;
     z-index: 2;
     max-width: 370px;
 }
@@ -682,10 +635,6 @@ section {
 }
 
 /* Worldwide section styling */
-section {
-    padding: 100px 100px;
-}
-
 .statistics-start {
     position: relative;
     width: 100%;
@@ -907,7 +856,7 @@ section {
     grid-template-areas:
         "video images"
         "references references";
-    gap: 50px;
+    gap: 60px;
 }
 
 .references-section .ref-box:nth-child(1) {
@@ -1242,6 +1191,20 @@ section {
     
     .vizualistation-section .container {
         padding: 60px;
+    }
+
+    .references-section {
+        padding: 60px 40px;   
+    }
+
+    .references-section .references-boxes {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .references-section .ref-box:first-child .references-list {
+        columns: 1;
     }
 
     /* Footer */

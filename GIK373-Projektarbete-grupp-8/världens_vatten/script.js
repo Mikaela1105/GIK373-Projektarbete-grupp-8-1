@@ -105,6 +105,7 @@ window.onload = calcScrollValue;
 // Pop-up info modal
 const highIncome = document.getElementById("high-income");
 const lowIncome = document.getElementById("low-income");
+const bnp = document.getElementById("bnp");
 
 if (highIncome) {
   highIncome.addEventListener("click", () => {
@@ -118,6 +119,14 @@ if (lowIncome) {
   lowIncome.addEventListener("click", () => {
     document
       .getElementById("low-income-modal")
+      .classList.add("modal-open");
+  });
+}
+
+if (bnp) {
+  bnp.addEventListener("click", () => {
+    document
+      .getElementById("bnp-modal")
       .classList.add("modal-open");
   });
 }

@@ -403,12 +403,14 @@ section {
     font-size: var(--font-size-s);
 }
 
-.about-section .about-details span {
+.about-section .about-details span,
+.about-vizualisation-section .vizualisation-title span {
     color: #305CDE;
     text-underline-offset: 4px;
 }
 
-.about-section .about-details span:hover {
+.about-section .about-details span:hover,
+.about-vizualisation-section .vizualisation-title span:hover {
     text-decoration: underline;
 
 }

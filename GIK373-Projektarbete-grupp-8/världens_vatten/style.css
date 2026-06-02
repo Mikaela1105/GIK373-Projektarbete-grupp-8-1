@@ -18,7 +18,7 @@
     --light-beige-color: #ccc;
 
     /* Font size */
-    --font-size-xs: 0.8rem;
+    --font-size-xs: 0.7rem;
     --font-size-s: 0.9rem;
     --font-size-n: 1rem;
     --font-size-m: 1.12rem;
@@ -767,6 +767,7 @@ section {
 
 .barChart-section .section-content .barChart-details {
     max-width: 380px;
+
 }
 
 .barChart-section .barChart-details .extra-text,
@@ -776,7 +777,13 @@ section {
 
 .barChart-section .barChart-details .text,
 .vizualistation-section .content .text {
-    padding-bottom: 20px;
+    padding-bottom: 15px;
+}
+
+.barChart-section .chart .extra-text {
+    font-size: var(--font-size-xs);
+    max-width: 400px;
+    padding: 15px 0 0 75px ;
 }
 
 /* Worldwide section styling */

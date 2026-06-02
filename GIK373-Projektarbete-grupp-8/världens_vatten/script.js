@@ -380,7 +380,7 @@ new Chart(document.getElementById("owid1"), {
       filterContinent("Africa", "rgba(255, 141, 1, 0.6)"),
       filterContinent("North America", "rgba(255, 0, 0, 0.6)"),
       filterContinent("South America", "rgba(13, 108, 27, 0.6)"),
-      filterContinent("Oceania", "rgba(0, 191, 244, 0.6)"),
+      filterContinent("Oceania", "rgba(19, 199, 249, 0.6)"),
     ]
   },
   options: {
@@ -562,27 +562,6 @@ console.log(mapData);
           }
         }
       }
-    }
-  });
-}
-
-/* ------------------------------ School section ------------------------------ */
-/* Read more button */
-const button = document.getElementById("readMoreBtn");
-/* const buttonText = document.getElementById("buttonText"); */
-const extraText = document.getElementById("extraText");
-const arrow = document.getElementById(".arrow");
-
-if (button && extraText) {
-  button.addEventListener("click", () => {
-    extraText.classList.toggle("hidden");
-  
-    const expanded = !extraText.classList.contains("hidden");
-  
-    button.textContent = expanded ? "Visa mindre" : "Datakälla";
-
-    if (arrow) {
-      arrow.classList.toggle("rotate");
     }
   });
 }

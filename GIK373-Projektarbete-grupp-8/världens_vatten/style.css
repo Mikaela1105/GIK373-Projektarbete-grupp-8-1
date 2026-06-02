@@ -769,11 +769,13 @@ section {
     max-width: 380px;
 }
 
-.barChart-section .barChart-details span {
+.barChart-section .barChart-details .extra-text,
+.vizualistation-section .content .extra-text p {
     font-size: var(--font-size-xs);
 }
 
-.barChart-section .barChart-details .text {
+.barChart-section .barChart-details .text,
+.vizualistation-section .content .text {
     padding-bottom: 20px;
 }
 

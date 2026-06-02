@@ -429,6 +429,7 @@ section {
 }
 
 .icon-close:hover {
+    cursor: pointer;
     color: var(--primary-color);
 }
 
@@ -794,7 +795,7 @@ section {
 .barChart-section .chart .extra-text,
 .vizualistation-section .chart .extra-text {
     font-size: var(--font-size-xs);
-    max-width: 400px;
+    max-width: 650px;
     padding: 15px 0 0 75px ;
 }
 
@@ -859,6 +860,20 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.map-container {
+    position: relative;
+    display: inline-block;
+}
+
+.africa-pin {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    left: 8%;
+    top: 41%;
+    transform: translate(-50%, -100%);
 }
 
 .about-vizualisation-section {
@@ -971,7 +986,7 @@ section {
     flex: 1;
     background: var(--white-color);
     border-radius: var(--border-radius-m);
-    padding: 40px;
+    padding: 60px;
     box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
     25px 35px 20px rgba(0, 0, 0, 0.05),
     25px 30px 30px rgba(0, 0, 0, 0.05),
@@ -1145,7 +1160,7 @@ section {
     .map-section .map-details .text,
     .barChart-section .barChart-details .text,
     .about-vizualisation-section .vizualisation-title {
-        max-width: 700px;
+        max-width: 800px;
         width: 100%;
         font-size: var(--font-size-m);
         line-height: 1.6;
@@ -1237,7 +1252,8 @@ section {
     }
 
     .about-section .about-details .text,
-    .map-section .map-details .text {
+    .map-section .map-details .text,
+    .barChart-section .barChart-details .text {
         font-size: var(--font-size-s);
         line-height: 1.6;
         text-align: left;

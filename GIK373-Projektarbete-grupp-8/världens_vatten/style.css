@@ -696,7 +696,6 @@ section {
 .card-description {
     display: block;
     font-size: var(--font-size-s);
-    margin-bottom: .25rem;
     line-height: 1.4;
 }
 
@@ -712,7 +711,7 @@ section {
     text-decoration: none;
     font-size: var(--font-size-s);
     color: var(--secondary-color);
-    margin-top: auto;
+    margin-top: 10px;
 }
 
 .card-button:hover {
@@ -1203,6 +1202,11 @@ section {
 
     .card-section .card-container .card-article  {
         width: 80%;
+    }
+
+    .card-description,
+    .small-text {
+        min-height: 220px;
     }
 
     /* World page */

@@ -453,36 +453,62 @@ function printWorldMap(countries, csvData) {
 
   const waterAcessMap = {};
   targetYearData.forEach(row => {
-    const countryName = row[0];
+    const countryName = row[0]. trim();
     const waterAccess = Number(row[3]);
-    waterAcessMap[countryName] = waterAccess;
+    
+    if (!isNaN(waterAccess)) {
+      waterAcessMap[countryName] = waterAccess;
+    }
   });
 
 /* Fixas med 0 data/White i kartan */
   const nameFix= {
-    "United States of America": "United States",
-    "Dem. Rep. Congo": "Congo, Dem. Rep.",
-    "Dem. Rep. Congo": "Congo",
-    "S. Sudan": "South Sudan",
+    "United States of America": "United States Virgin Islands",
+    "Congo": "Democratic Republic of Congo",
+    "Dem. Rep. Congo": "Democratic Republic of Congo",
+    "Domincan Rep.": "Dominican Republic",
     "Central African Rep.": "Central African Republic",
+    "Eq. Guinea": "Equatorial Guinea",
+    "eSwatini": "Eswatini",
+    "S. Sudan": "South Sudan",
+    "Bosnia and Herz.": "Bosnia and Herzegovina",
+    "Macedonia": "North Macedonia",
+    "Timor-Leste": "East Timor",
+    "Solomon Is.": "Solomon Islands",
+    "Côte d'Ivoire": "Cote d'Ivoire",
+    "N. Cyprus": "Northern Cyprus",
+    "North Korea": "North Korea",
+    "Taiwan": "Taiwan (Province of China)",
+    "kosovo": "Kosovo",
+    "Eritrea": "Eritrea",
+    "Argentina": "Argentina",
+    "W. Sahara": "Western Sahara",
   }
 console.log(Object.keys(waterAcessMap).filter(n => n.includes("United States")))
-console.log(Object.keys(waterAcessMap).filter(n => n.includes("Sudan")))
 console.log(Object.keys(waterAcessMap).filter(n => n.includes("Congo")))
 console.log(Object.keys(waterAcessMap).filter(n => n.includes("Dem. Rep. Congo")))
-console.log(Object.keys(waterAcessMap).filter(n => n.includes("Central African Rep.")))
-
+console.log(Object.keys(waterAcessMap).filter(n => n.includes("Nicaragua")))
 /* ----------- */
 
 const mapData = countries.map((feature) => {
-    const countryName = nameFix[feature.properties.name] || feature.properties.name;
-    return {
-      feature: feature,
-      value: waterAcessMap[countryName] || 0
-    };
-  });
+    const originalName = feature.properties.name;
+    const countryName = nameFix[originalName] || originalName;
+    
+    return {feature, value: waterAcessMap[countryName] ?? null
 
-  console.log(mapData)
+    };
+});
+
+const missingCountries = [];
+mapData.forEach(d => {
+  if (d.value === null) {
+    missingCountries.push(d.feature.properties.name);
+  }
+});
+console.log("Missing countries:", missingCountries.sort()
+);
+
+console.log(mapData);
 
   new Chart(document.getElementById("owidMap"), {
     type: "choropleth",
@@ -501,10 +527,11 @@ const mapData = countries.map((feature) => {
         tooltip: {
           callbacks: {
             label: (ctx) => {
+              if (ctx.raw.value === null) {
+                return ctx.chart.data.labels[ctx.dataIndex] + ": Data saknas";
+              }
               return (
-                ctx.chart.data.labels[ctx.dataIndex] +
-                ": " +
-                ctx.raw.value.toFixed(1) + "%"
+                ctx.chart.data.labels[ctx.dataIndex] + ": " + ctx.raw.value.toFixed(1) + "%"
               );
             }
           }

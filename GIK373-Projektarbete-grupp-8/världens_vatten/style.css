@@ -783,7 +783,7 @@ section {
 }
 
 .barChart-section .barChart-details .extra-text,
-.vizualistation-section .content .extra-text p {
+.vizualistation-section .chart .extra-text p {
     font-size: var(--font-size-xs);
 }
 
@@ -792,7 +792,8 @@ section {
     padding-bottom: 15px;
 }
 
-.barChart-section .chart .extra-text {
+.barChart-section .chart .extra-text,
+.vizualistation-section .chart .extra-text {
     font-size: var(--font-size-xs);
     max-width: 400px;
     padding: 15px 0 0 75px ;

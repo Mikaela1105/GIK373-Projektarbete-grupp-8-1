@@ -512,10 +512,6 @@ section {
 }
 
 .home-image-wrapper .content .number {
-    font-family: "Miniver", sans-serif;
-    text-transform: none;
-    color: var(--secondary-color);
-    font-size: var(--font-size-l);
     padding-right: 20px;
 }
 
@@ -523,7 +519,8 @@ section {
     font-style: italic;
 }
 
-.home-image-wrapper .content .bold {
+.home-image-wrapper .content .bold,
+.contribute-section .section-content .contribute-column .bold {
     font-weight: var(--font-weight-semibold);
 }
 
@@ -750,12 +747,23 @@ section {
     line-height: 50px;
 }
 
-.video-wrapper .content .title span {
-    font-size: 2.8rem;
+.video-wrapper .content .title span,
+.home-image-wrapper .content .number,
+.contribute-section .section-content .contribute-column .font-style,
+.facts .container .content h2 {
     font-weight: var(--font-weight-semibold);
     font-family: "Miniver", sans-serif;
     text-transform: none;
     color: var(--secondary-color);
+}
+
+.contribute-section .section-content .contribute-column .font-style {
+    font-size: var(--font-size-l);
+}
+
+.video-wrapper .content .title span,
+.home-image-wrapper .content .number {
+    font-size: 2.8rem;
 }
 
 .hidden {

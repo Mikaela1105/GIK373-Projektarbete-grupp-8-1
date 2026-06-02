@@ -93,6 +93,7 @@ window.onload = calcScrollValue;
 // Pop-up info modal
 const highIncome = document.getElementById("high-income");
 const lowIncome = document.getElementById("low-income");
+const middleIncome = document.getElementById("middle-income");
 const bnp = document.getElementById("bnp");
 
 if (highIncome) {

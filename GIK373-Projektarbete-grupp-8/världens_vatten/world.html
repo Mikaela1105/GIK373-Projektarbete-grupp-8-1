@@ -74,8 +74,16 @@
         <section class="vizualistation-section" id="vizualistation">
             <div class="container">
                 <div class="content">
-                    <h2 class="vizualisation-title"> Varje lands tillgång till rent dricksvatten i förhållande med BNP per capita</h2> 
-                    <p>Spridningsdiagrammet visar en korrelation mellan ett lands BNP per capita i dollar och procentuella mängd rent dricksvatten. Utöver några outliers finns ett starkt positivt samband mellan rikare länder och tillgång till rent vatten. Det finns flera som befinner sig vid en tillgång till dricksvatten på 85 procent eller mindre, där Afrika är överrepresenterat. Fattigare länder saknar den infrastruktur, teknik och finansiering som bidrar till säkert dricksvatten (Shadabi; A Ward, 2022).</p>
+                    <h2 class="vizualisation-title"> Varje lands tillgång till rent dricksvatten i förhållande till BNP per capita</h2> 
+                    <p  class="text">Spridningsdiagrammet visar en korrelation mellan ett lands BNP per capita i dollar och procentuella mängd rent dricksvatten. Utöver några outliers finns ett starkt positivt samband mellan rikare länder och tillgång till rent vatten. Det finns flera som befinner sig vid en tillgång till dricksvatten på 85 procent eller mindre, där Afrika är överrepresenterat. Fattigare länder saknar den infrastruktur, teknik och finansiering som bidrar till säkert dricksvatten (Shadabi; A Ward, 2022).</p>
+                    <p>
+                        <span id="extraText" class="hidden">
+                            Källan till visualiseringen av tillgång till rent dricksvatten i Sverige i förhållande till BNP per capita är WHO/UNICEF hämtad från Our World in Data. Detta är en forsknings- och statistikplattform som samlar globala data om exempelvis utbildning, fattigdom, hälsa eller vatten och sanitet. Plattformen drivs av ett nära samarbete mellan forskare från Oxford Universitet och organisationen Global Change Data Lab (Our World in Data, u.å.).
+                        </span>
+                    </p>
+                    <button class="readmore-btn" id="readMoreBtn">
+                        <span id="buttonText">Datakälla <i class="fa-solid fa-angle-right arrow"></i></span>
+                    </button>
                 </div>
                 <div class="chart">
                     <canvas id="owid1"></canvas>
@@ -100,7 +108,15 @@
             <div class="container">
                 <div class="content">
                     <h2 class="vizualisation-title">Utvecklingskurva för Sveriges och Togos vattentillgång</h2> 
-                    <p>Sverige ligger stabilt på en mycket hög nivå, omkring 99%, vilket visar att nästan hela befolkningen haft tillgång till rent dricksvatten under hela perioden. För majoriteten av Sveriges befolkning är det en självklarhet att rent vatten finns nära och lättillgängligt. En självklarhet som inte syns i Togo. Togo visar till en början visar extremt låga nivåer av tillgänglighet till rent vatten. Med tiden ökar siffran mycket och ligger sist på en nivå på omkring 82%. Trots den markanta ökningen finns inga självklarheter att alla har tillgång till rent dricksvatten i Togo. Dessa brister på säkert dricksvatten kan innebära betydande hälsorisker. Förorenat vatten kan sprida sjukdomar som diarré och tyfoidfeber. Långvarig exponering för ämnen som arsenik och fluorid kan dessutom leda till allvarliga kroniska hälsoproblem, inklusive hjärt-kärlsjukdomar, cancer och skador på skelett och nervsystem. Dessa risker drabbar särskilt barn och gravida kvinnor, som är mest sårbara för konsekvenserna av osäkert vatten (Dreyer et al., 2026).</p>
+                    <p>Sverige ligger stabilt på en mycket hög nivå, omkring 99 %, vilket visar att nästan hela befolkningen haft tillgång till rent dricksvatten under hela perioden. I Togo har tillgången ökat kraftigt över tid till cirka 82 %, men ligger fortfarande betydligt lägre än i Sverige. Denna lägre nivå innebär att en stor del av befolkningen fortfarande saknar säker tillgång till rent vatten, vilket bidrar till allvarliga hälsoproblem. Förorenat vatten ökar risken för sjukdomar som diarré och tyfoidfeber, och långvarig exponering för skadliga ämnen kan leda till kroniska sjukdomar. Barn och gravida kvinnor är särskilt utsatta, vilket gör bristen på rent vatten till ett betydande folkhälsoproblem (Dreyer et al., 2026).</p>
+                    <p>
+                        <span id="extraText" class="hidden">
+                            Källan till visualiseringen av utvecklingskurvan för Sveriges och Togos vattentillgång är WHO/UNICEF hämtad från Our World in Data. Detta är en forsknings- och statistikplattform som samlar globala data om exempelvis utbildning, fattigdom, hälsa eller vatten och sanitet. Plattformen drivs av ett nära samarbete mellan forskare från Oxford Universitet och organisationen Global Change Data Lab (Our World in Data, u.å.).
+                        </span>
+                    </p>
+                    <button class="readmore-btn" id="readMoreBtn">
+                        <span id="buttonText">Datakälla <i class="fa-solid fa-angle-right arrow"></i></span>
+                    </button>
                 </div>
                 <div class="chart">
                     <canvas id="owid2"></canvas>
@@ -110,14 +126,20 @@
                 <div class="content">
                     <h2 class="vizualisation-title">Togos utveckling av BNP per capita i förhållande till vattentillgång</h2> 
                     <p>Grafen visar ett positivt samband mellan Togos BNP och tillgång till rent vatten över tid, där båda variablerna förbättras. Det betyder att tillgången till rent vatten förbättras i takt med tillväxt av ekonomin och tyder på att landets rikedom haft en stor påverkan på vattentillgången. Samtidigt är sambandet inte perfekt linjärt vilket ger insikten att ekonomisk tillväxt inte är den enda faktorn som styr vattentillgång. Detta stödjer studien om att infrastruktur, teknik och finansiering bidrar till säkert vatten (Shadabi; A Ward, 2022).</p>
+                    <p>
+                        <span id="extraText" class="hidden">
+                            Källan till visualiseringen av Togos utveckling av BNP per capita i förhållande till vattentillgång är WHO/UNICEF hämtad från Our World in Data. Detta är en forsknings- och statistikplattform som samlar globala data om exempelvis utbildning, fattigdom, hälsa eller vatten och sanitet. Plattformen drivs av ett nära samarbete mellan forskare från Oxford Universitet och organisationen Global Change Data Lab (Our World in Data, u.å.).
+                        </span>
+                    </p>
+                    <button class="readmore-btn" id="readMoreBtn">
+                        <span id="buttonText">Datakälla <i class="fa-solid fa-angle-right arrow"></i></span>
+                    </button>
                 </div>
                 <div class="chart">
                     <canvas id="owid3"></canvas>
                 </div>
             </div> 
         </section>
-             
-        
 
         <!-- Footer section -->
         <footer class="footer-section">

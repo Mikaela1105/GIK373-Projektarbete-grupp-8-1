@@ -334,8 +334,7 @@ section {
     background: var(--light-beige-color);
 }
 
-.about-section .section-content,
-.map-section .section-content {
+.about-section .section-content {
     display: flex;
     gap: 200px;
     align-items: center;
@@ -434,6 +433,13 @@ section {
 }
 
 /* Map section styling */
+.map-section .section-content {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
 .map-section,
 .barChart-section {
     background: var(--white-color);

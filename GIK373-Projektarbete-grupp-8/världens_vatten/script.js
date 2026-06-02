@@ -153,7 +153,8 @@ function printOWIDChart(dataOWID) {
 
   console.log(values)
 
-//Linjediagram
+/* LINJEDIAGRAM SVERIGE VS TOGO */
+
 const togoData = values
   .filter(row => row[0] === "Togo" &&
     Number(row[2]) > 0 &&
@@ -210,7 +211,7 @@ new Chart(document.getElementById("owid2"), {
             },
             label: function(context) {
               return( 
-                " | Vatten: " + context.raw.y.toFixed(2) + "%" //kanske byta till "Number(context.raw.y).toFixed(2)"
+                " Vatten: " + context.raw.y.toFixed(2) + "%" //kanske byta till "Number(context.raw.y).toFixed(2)"
               )
             }
           }
@@ -227,7 +228,7 @@ new Chart(document.getElementById("owid2"), {
           title: {
             display: true,
             text: "Tillgång till rent vatten (%)",
-             padding: 16,
+             padding: 10,
           },
            ticks: {
           callback: (value) => value.toFixed(0) + "%"
@@ -237,7 +238,7 @@ new Chart(document.getElementById("owid2"), {
     }
 })
 
-/* LINJEDIAGRAM  */
+/* LINJEDIAGRAM TOGO BNP VS TOGO*/
 
 const togoWater = values
   .filter(row => row[0] === "Togo" &&
@@ -295,9 +296,11 @@ new Chart(document.getElementById("owid3"), {
               return "År: " + context[0].raw.x
             },
             label: function(context) {
-              return( 
-                " | Vatten: " + context.raw.y.toFixed(2) + "%" //kanske byta till "Number(context.raw.y).toFixed(2)"
-              )
+              if (context.dataset.label === "Vattentillgång (%)") {
+                return " Vatten: " + context.raw.y.toFixed(1) + "%"; //kanske byta till "Number(context.raw.y).toFixed(2)"
+              } else {
+                return " BNP per capita: " + Math.round(context.parsed.y).toLocaleString() + "$";
+              }
             }
           }
         }  
@@ -313,7 +316,7 @@ new Chart(document.getElementById("owid3"), {
           title: {
             display: true,
             text: "Tillgång till rent vatten (%)",
-             padding: 16,
+             padding: 10,
           },
            ticks: {
           callback: (value) => value.toFixed(0) + "%"
@@ -372,12 +375,12 @@ new Chart(document.getElementById("owid1"), {
   type: "scatter",
   data: {
     datasets: [
-      filterContinent("Europe", "rgba(20, 128, 236, 0.57)"),
-      filterContinent("Asia", "rgba(128, 18, 206, 0.5)"),
-      filterContinent("Africa", "rgba(255, 162, 12, 0.62)"),
-      filterContinent("North America", "rgba(228, 119, 148, 0.69)"),
-      filterContinent("South America", "rgba(22, 105, 60, 0.61)"),
-      filterContinent("Oceania", "rgba(32, 196, 196, 0.76)"),
+      filterContinent("Europe", "rgba(34, 112, 189, 0.6)"),
+      filterContinent("Asia", "rgba(128, 18, 206, 0.6)"),
+      filterContinent("Africa", "rgba(255, 141, 1, 0.6)"),
+      filterContinent("North America", "rgba(255, 0, 0, 0.6)"),
+      filterContinent("South America", "rgba(13, 108, 27, 0.6)"),
+      filterContinent("Oceania", "rgba(0, 191, 244, 0.6)"),
     ]
   },
   options: {
@@ -409,7 +412,7 @@ new Chart(document.getElementById("owid1"), {
         title: {
           display: true,
           text: "Tillgång till rent vatten (%)",
-          padding: 16
+          padding: 10
         },
         ticks: {
           callback: (value) => value.toFixed(0) + "%"
@@ -420,7 +423,7 @@ new Chart(document.getElementById("owid1"), {
         title: {
           display: true,
           text: "BNP per capita",
-          padding: 16
+          padding: 10
         },
         ticks: {
           maxTicksLimit: 5

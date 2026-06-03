@@ -648,6 +648,12 @@ section {
     justify-content: space-between;
 }
 
+.contribute-section .chart {
+    padding-top: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .contribute-column {
     flex: 1;
 }
@@ -800,8 +806,9 @@ section {
     padding: 15px 0 0 75px ;
 }
 
-.contribute-section .contribute-column .extra-text country {
-    padding: ;
+.contribute-section .contribute-column .extra-text.country {
+    padding-top: 25px;
+    padding-left: 0;
 }
 
 /* Worldwide section styling */
@@ -1155,8 +1162,8 @@ section {
     }
 
     .map-section .section-content,
-    .barChart-section .section-content {
-        gap: 40px;
+    .contribute-section .section-content {
+        gap: 25px;
         flex-direction: column;
         align-items: center;
     }

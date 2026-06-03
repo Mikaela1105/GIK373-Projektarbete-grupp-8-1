@@ -1,18 +1,3 @@
-// Ändrar panel namn
-function openPanel(panel) {
-    if (panel === "#") {
-        document.title = "Världens vatten";
-    } else if (panel === "contribute") {
-        document.title = "Världens vatten - Gör skillnad";
-    } else if (panel === "school") {
-        document.title = "Världens vatten - Vatten i skolan";
-    } else if (panel === "world") {
-        document.title = "Världens vatten - Vatten i världen";
-    } else if (panel === "resources") {
-        document.title = "Världens vatten - Referenser";
-    }
-}
-
 // Videorna
 const navLinks = document.querySelectorAll(".nav-menu .nav-link");
 const menuOpenButtoon = document.querySelector("#menu-open-button");
@@ -228,7 +213,7 @@ new Chart(document.getElementById("owid2"), {
         y:{
           title: {
             display: true,
-            text: "Tillgång till rent vatten (%)",
+            text: "Tillgång till förbättrade vattenkällor (%)",
              padding: 10,
           },
            ticks: {
@@ -273,7 +258,7 @@ new Chart(document.getElementById("owid3"), {
           borderWidth: 3
         },
         {
-          label: "BNP per capita",
+          label: "BNP per capita ($)",
           data: togoGDP,
           borderColor: "rgb(163, 102, 36)",
           backgroundColor: "rgb(176, 129, 78)",
@@ -316,7 +301,7 @@ new Chart(document.getElementById("owid3"), {
         y:{
           title: {
             display: true,
-            text: "Tillgång till rent vatten (%)",
+            text: "Tillgång till förbättrade vattenkällor (%)",
              padding: 10,
           },
            ticks: {
@@ -328,7 +313,7 @@ new Chart(document.getElementById("owid3"), {
           position: "right",
           title: {
             display: true,
-            text: "BNP per capita"
+            text: "BNP per capita ($)"
           }, 
           grid: {
             drawOnChartArea: false
@@ -412,7 +397,7 @@ new Chart(document.getElementById("owid1"), {
       x: {
         title: {
           display: true,
-          text: "Tillgång till rent vatten (%)",
+          text: "Tillgång till förbättrade vattenkällor (%)",
           padding: 10
         },
         ticks: {
@@ -423,7 +408,7 @@ new Chart(document.getElementById("owid1"), {
         type: "logarithmic",
         title: {
           display: true,
-          text: "BNP per capita",
+          text: "BNP per capita ($)",
           padding: 10
         },
         ticks: {
@@ -519,7 +504,7 @@ console.log(mapData);
     data: { 
       labels: mapData.map(d => d.feature.properties.name),
       datasets: [{
-        label: "Tillgång till rent vatten (%)",
+        label: "Tillgång till förbättrade vattenkällor (%)",
         data: mapData
       }]
     },
@@ -668,6 +653,11 @@ function printSchoolChart(dataOWIDSchool) {
             // x-axelns skala skall vara procent från 0-100
             scales: {
                 x: {
+                    title: {
+                    display: true,
+                    text: "Tillgång till rent vatten (%)",
+                    padding: 10
+                    },
                     min: 0,
                     max: 100,
                     ticks: {

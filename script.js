@@ -137,8 +137,7 @@ if (hasOWID) {
 function printOWIDChart(dataOWID) {
   const rows = dataOWID.split("\n");
   const data = rows.map(
-    row => row.split(",")
-  );
+    row => row.split(","));
   const values = data.slice(1);
 
 /* Values scatterplot */
@@ -155,6 +154,15 @@ function printOWIDChart(dataOWID) {
     country: row[0],
     continent: row[5]
   })) 
+
+  function filterContinent(name, color) {
+      return{
+        label:name,
+        data: scatterData.filter(d => d.continent === name),
+        backgroundColor: color,
+        pointRadius: 5
+      }
+  }
 
 /* Values Togo vs Sweden */
   const togoData = values
@@ -324,15 +332,6 @@ function printOWIDChart(dataOWID) {
 /* -------------------------------------------------------------------------- */
  
 /* Scatterplot */
-  function filterContinent(name, color) {
-      return{
-        label:name,
-        data: scatterData.filter(d => d.continent === name),
-        backgroundColor: color,
-        pointRadius: 5
-      }
-  }
-
 if (document.getElementById("owid1")) {
   new Chart(document.getElementById("owid1"), {
     type: "scatter",
@@ -396,7 +395,6 @@ if (document.getElementById("owid1")) {
     }
   });
   }
-} 
 /* -------------------------------------------------------------------------- */
 
 /* Linechart Sweden vs Togo */
@@ -544,6 +542,7 @@ if (document.getElementById("owid3")) {
       }
     }
   })
+}
 }
 /* ------------------------------------------------------------------------------- */
 

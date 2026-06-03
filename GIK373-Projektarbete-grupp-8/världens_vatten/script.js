@@ -624,7 +624,7 @@ function printSchoolChart(dataOWIDSchool) {
             label: "Sweden",
             data: sweden,
             borderWidth: 1.5,
-            barThickness: 30,
+            barThickness: 25,
             borderColor: "rgb(18, 64, 89)",
             backgroundColor: "rgb(56, 100, 123)"
           },
@@ -632,7 +632,7 @@ function printSchoolChart(dataOWIDSchool) {
             label: "Zimbabwe",
             data: zimbabwe,
             borderWidth: 1.5,
-            barThickness: 30,
+            barThickness: 25,
             borderColor: "rgb(163, 102, 36)",
             backgroundColor: "rgb(176, 129, 78)"
           }
@@ -646,12 +646,8 @@ function printSchoolChart(dataOWIDSchool) {
                     right: 50
                 }
             },
-
             // Staplarna ska vila på y-axeln.
             indexAxis: "y",
-
-            // Responsiv graf.
-            responsive: true,
 
             // x-axelns skala skall vara procent från 0-100
             scales: {

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Världens Vatten</title>
+    <!-- Linking Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header / Navbar -->
+    <header>
+        <nav class="navbar section-content">
+            <a href="#" class="nav-logo">
+                <img src="img/logotype.png" alt="logotype" class="logotype">
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times"></button> <!-- byt namn på class, glöm ej css-->
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">Hem</a>
+                </li>
+                <li class="nav-item">
+                    <a href="world.html" class="nav-link">Vatten i världen</a>
+                </li>
+                <li class="nav-item">
+                    <a href="school.html" class="nav-link">Vatten i skolan</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contribute.html" class="nav-link">Gör skillnad</a>
+                </li>
+                <li class="nav-item">
+                    <a href="references.html" class="nav-link">Referenser</a>
+                </li>
+            </ul>
+            <button id="menu-open-button" class="fas fa-bars"></button>
+        </nav>
+    </header>
+
+    <!-- Main section -->
+    <main>
+        <!-- Scroll to top button -->
+        <div id="progress">
+            <i id="progress-value" class="fa-solid fa-arrow-up"></i>
+        </div>
+
+        <!-- Home section -->
+        <section class="home">
+            <video class="video-slide active" src="videos/handwash.mp4" autoplay muted loop></video>
+            <video class="video-slide" src="videos/school.mp4" autoplay muted loop></video>
+            <video class="video-slide" src="videos/waterstation.mp4" autoplay muted loop></video>
+            <div class="content active">
+                <h1 class="title"><span>Vatten </span><br>och sanitet<br>världen över</h1>
+                <p class="description">Tillgång till rent vatten och sanitet är avgörande för människors hälsa och livskvalitet. Det är en grundförutsättning för allt levande på Jorden. 844&nbsp;miljoner människor saknar grundläggande källa till dricksvatten och 115 miljoner av dessa tvingas hämta förorenat dricksvatten från sjöar eller andra öppna vattenkällor.<br><span>Källa: (UNICEF, 2024)</span></p>
+                <a class="button" href="world.html">Läs mer</a>
+            </div>
+            <div class="content">
+                <h1 class="title">Lång väg för <br>att hämta <br>rent <span>vatten</span></h1>
+                <p class="description">Idag saknar uppskattningsvis 427 miljoner barn tillgång till fungerande toaletter i skolan, vilket hotar utbildning och skolnärvaro globalt. Bristen på grundläggande sanitet ökar både sociala och ekonomiska ojämlikheter, då ansvaret för vattenhämtning i många av hushållen huvudsakligen faller på kvinnor och flickor<br><span>Källa: (WaterAid, u.å.)</span></p>
+                <a class="button" href="school.html">Läs mer</a>
+            </div>
+            <div class="content">
+                <h1 class="title"><span>Du</span> kan<br>göra stor<br>skillnad!</h1>
+                <p class="description">Miljontals människor kämpade igår, kommer kämpa imorgon och kämpar just nu för sin överlevnad till följd av förorenat vatten och bristfällig sanitet. I exempelvis Sudan har 1 560 skolbarn fått tillgång till rent dricksvatten, men detta hade inte varit möjligt utan gemensamma insatser.  Din insats gör skillnad för människor!<br><span>Källa: (Sida, u.å.)</span></p>
+                <a class="button" href="contribute.html">Läs mer</a>
+            </div>
+            <div class="slider-navigation">
+                <div class="nav-btn active"></div>
+                <div class="nav-btn"></div>
+                <div class="nav-btn"></div>
+            </div>
+        </section>
+
+        <!-- About section -->
+        <section class="about-section" id="about">
+            <div class="section-content">
+                <div class="about-image-wrapper">
+                    <img src="img/playing-with-water.jpg" alt="About" class="image-circle">
+                </div>
+                <div class="about-details">
+                    <h2 class="section-title">Om oss</h2>
+                    <p class="text">Har du reflekterat över att den tid det tar att läsa detta stycke motsvarar den tid som krävs för att resa sig från soffan, gå till köket och fylla ett glas med rent vatten?<br> <br>I många <span class="icon" id="high-income">höginkomstländer</span> betraktas tillgång till vatten som en självklarhet, men i ett globalt perspektiv utgör denna tillgång ett privilegium som långt ifrån alla människor besitter. 844 miljoner människor saknar grundläggande källa till dricksvatten och 2,3 miljarder har bristfälliga sanitära faciliteter såsom latriner (UNICEF, u.å.). <br> <br>Brist på grundläggande vatten och sanitet leder till allvarliga konsekvenser, såsom ökad ojämlikhet, hindrad ekonomisk utveckling, förhöjda konflikter, samt hälsoproblem såsom diarrésjukdomar och kolera (Sida, 2023). Särskilt utsatta är människor som lever i <span class="icon" id="low-income">låginkomstländer</span> och övervägande andel drabbade är kvinnor och flickor som ansvarar för familjers vattenförsörjning (Globala&nbsp;målen,&nbsp;2024).</p>
+                </div>
+            </div>
+            <div class="popup-modal">
+                <div class="modal" id="high-income-modal">
+                    <div class="modal-inner">
+                        <h2>Höginkomstland</h2>
+                        <p>Världsbanken kategoriserar in länder i fyra olika kategorier beroende på bruttonationalinkomst (BNI) per invånare. Dessa fyra kategorier är: låginkomstländer, lägre medelinkomstländer, övre medelinkomstländer och höginkomstländer. BNI för ett låginkomstland är lägre än 1135 dollar per år (Utrikespolitiska institutet, 2025).</p>
+                        <a class="icon-close" id="closeIconHigh"><i class="fa-solid fa-xmark"></i></a>
+                    </div>
+                </div>
+                <div class="modal" id="low-income-modal">
+                    <div class="modal-inner">
+                        <h2>Låginkomstland</h2>
+                        <p>Världsbanken kategoriserar in länder i fyra olika kategorier beroende på bruttonationalinkomst (BNI) per invånare. Dessa fyra kategorier är: låginkomstländer, lägre medelinkomstländer, övre medelinkomstländer och höginkomstländer. BNI för ett höginkomstland är högre än 13 935 dollar per år (Utrikespolitiska institutet, 2025). </p>
+                        <a class="icon-close" id="closeIconLow"><i class="fa-solid fa-xmark"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map section -->
+        <section class="map-section" id="map">
+            <div class="section-content">
+                <div class="map-details">
+                    <h2 class="section-title">tillgång till förbättrade dricksvattenkällor</h2> 
+                    <p class="text">Världskartan visar att det är en stor skillnad i tillgång till förbättrade dricksvattenkällor mellan olika regioner. I Afrika, särskilt i de södra delarna, är tillgången till förbättrade dricksvattenkällor betydligt lägre än i andra delar av världen. I Europa, Nordamerika och Australien är tillgången generellt sett mycket högre. Detta kan bero på faktorer som ekonomisk utveckling, infrastruktur och klimatförhållanden (Shadabi; A Ward, 2022).</p>
+                </div>
+                <div class="chart">
+                    <canvas id="owidMap"></canvas>
+                    <details class="extra-text">
+                        <summary>Datakälla: </summary>
+                        <p>Källan till visualiseringen av tillgång till förbättrade dricksvattenkällor är WHO/UNICEF hämtad från Our World in Data. Detta är en forsknings-&nbsp;&amp;&nbsp;statistikplattform som samlar globala data om exempelvis utbildning, fattigdom, hälsa eller vatten och sanitet. Plattformen drivs av ett nära samarbete mellan forskare från Oxford Universitet och organisationen Global Change Data Lab (Our World in Data, u.å.).</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Home image section -->
+        <div class="home-image-wrapper">
+            <img src="img/boy-cleaning-face.jpg" alt="" class="image-homepage">
+            <div class="content">
+                <h2 class="title">Vad kan du göra?</h2>
+                <p class="description"><span class="number">1.</span> Spola inte ned <span class="italic">skräp</span>, <span class="italic">tamponger</span>, <span class="italic">mediciner</span> eller andra kemikaliska avfall i toaletten. Detta förorenar floder och sjöar och påfrestar reningsverk, samt djurs och människors hälsa.</p>
+                <p class="description"><span class="number">2.</span> En läckande vattenkran kan slösa mer än <span class="bold">11 000</span> liter vatten årligen. Ser du en söndrig kran i din omgivning, hemma, i skolan eller på arbetet? Laga den!</p>
+                <p class="resources">Källa: Globala målen (2024)</p>
+            </div>
+        </div>
+
+        <!-- Facts section -->
+        <section class="facts" id="facts">
+            <h2 class="section-title">Visste du att?</h2>
+            <div class="container">
+                <div class="drop">
+                    <div class="content">
+                        <h2>1.</h2>
+                        <p>Visste du att varje minut dör ett spädbarn till följd av en infektion som beror på vattenbrist, förorenat vatten eller ohygienisk miljö?</p>
+                        <a href="world.html">Vatten i världen <i class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                    <div class="resources">
+                        <p>Källa: Röda Korset (u.å.)</p>
+                    </div>
+                </div>
+                <div class="drop">
+                    <div class="content">
+                        <h2>2.</h2>
+                        <p>Visste du att flickor missar <span>10</span>–<span>20%</span> av skoldagar på grund av tidsförlust vid vattenhämtning eller för att skolan saknar adekvat sanitet. Ofta påverkas detta under perioder av menstruation.</p>
+                        <a href="school.html">Vatten i skolan <i class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                    <div class="resources">
+                        <p>Källa: Global Citizen (2018)</p>
+                    </div>
+                </div>
+                <div class="drop">
+                    <div class="content">
+                        <h2>3.</h2>
+                        <p>Visste du att handtvätt med tvål och vatten kan minska diarré med <span>30%</span> och akuta luftvägsinfektioner med <span>17%</span>? Denna verkställighet skulle kunna rädda omkring <span>740 000</span> liv årligen.</p>
+                        <a href="contribute.html">Gör skillnad <i class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                    <div class="resources">
+                        <p>Källa: Unwater (u.å.)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer section -->
+        <footer class="footer-section">
+            <div class="section-content">
+                <p class="copyright-text">© 2026 Världens Vatten</p>
+                <div class="social-link-list">
+                    <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <p class="policy-text">
+                    <a href="#" class="policy-link">Privacy policy</a>
+                </p>
+            </div>
+        </footer>
+    </main>
+    
+    <!-- Linking json script -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/chartjs-chart-geo@4.3.4/build/index.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,18 +1,3 @@
-// Ändrar panel namn
-function openPanel(panel) {
-    if (panel === "#") {
-        document.title = "Världens vatten";
-    } else if (panel === "contribute") {
-        document.title = "Världens vatten - Gör skillnad";
-    } else if (panel === "school") {
-        document.title = "Världens vatten - Vatten i skolan";
-    } else if (panel === "world") {
-        document.title = "Världens vatten - Vatten i världen";
-    } else if (panel === "resources") {
-        document.title = "Världens vatten - Referenser";
-    }
-}
-
 // Videorna
 const navLinks = document.querySelectorAll(".nav-menu .nav-link");
 const menuOpenButtoon = document.querySelector("#menu-open-button");

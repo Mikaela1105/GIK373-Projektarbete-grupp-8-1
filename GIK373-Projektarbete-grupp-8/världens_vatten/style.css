@@ -792,11 +792,16 @@ section {
     padding-bottom: 15px;
 }
 
-.barChart-section .chart .extra-text,
+.contribute-section .chart .extra-text,
+.contribute-section .contribute-column .extra-text,
 .vizualistation-section .chart .extra-text {
     font-size: var(--font-size-xs);
     max-width: 650px;
     padding: 15px 0 0 75px ;
+}
+
+.contribute-section .contribute-column .extra-text country {
+    padding: ;
 }
 
 /* Worldwide section styling */
@@ -1257,6 +1262,12 @@ section {
         font-size: var(--font-size-s);
         line-height: 1.6;
         text-align: left;
+    }
+
+    .africa-pin {
+    width: 140px;
+    left: 16%;
+    top: 41%;
     }
 
     .vizualistation-section {

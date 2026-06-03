@@ -362,13 +362,8 @@ section {
     cursor: pointer;
 }
 
-.contribute-section .contribute-column .link {
-    color: #305CDE;
-}
-
 .contribute-section .section-content a:hover,
-.references-boxes .ref-box a:hover,
-.contribute-section .contribute-column .link:hover {
+.references-boxes .ref-box a:hover {
     text-decoration: underline;
     text-underline-offset: 4px;
     color: #1E3D93;
@@ -631,8 +626,7 @@ section {
     font-weight: var(--font-weight-bold);
 }
 
-.container .drop .content a,
-.contribute-section .contribute-column a {
+.container .drop .content a {
     color: var(--secondary-color);
     text-decoration: underline;
     text-underline-offset: 4px;
@@ -887,9 +881,9 @@ section {
 
 .africa-pin {
     position: absolute;
-    width: 180px;
+    width: 200px;
     height: auto;
-    left: 5%;
+    left: 8%;
     top: 41%;
     transform: translate(-50%, -100%);
 }
@@ -1235,6 +1229,11 @@ section {
 
     .card-section .card-container .card-article  {
         width: 80%;
+    }
+
+    .card-description,
+    .small-text {
+        min-height: 220px;
     }
 
     /* World page */

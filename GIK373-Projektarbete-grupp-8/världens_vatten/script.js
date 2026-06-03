@@ -665,9 +665,6 @@ function printSchoolChart(dataOWIDSchool) {
             // Staplarna ska vila på y-axeln.
             indexAxis: "y",
 
-            // Responsiv graf.
-            responsive: true,
-
             // x-axelns skala skall vara procent från 0-100
             scales: {
                 x: {

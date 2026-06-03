@@ -41,11 +41,11 @@
     --site-max-width: 1440px;
 }
 
+/* Stylings for the whole website */
 html {
     scroll-behavior: smooth;
 }
 
-/* Stylings for the whole website */
 ul {
     list-style: none;
 }
@@ -636,95 +636,126 @@ section {
     color: var(--primary-color);
 }
 
-/* Contribute section styling */
-.contribute-section {
+/* World section styling */
+.statistics-start {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     background: var(--light-beige-color);
 }
 
-.contribute-section .section-content {
-    display: flex;
-    gap: 60px;
-    align-items: start;
-    justify-content: space-between;
-}
-
-.contribute-section .chart {
-    padding-top: 40px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.contribute-column {
-    flex: 1;
-}
-
-.card-section .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    align-items: stretch;
-}
-
-.card-section .card-container .card-article {
-    display: flex;
-    flex-direction: column;
-    width: calc(100% / 3 - 32px);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    border-radius: var(--border-radius-m);
-    overflow: hidden;
-}
-
-.card-img {
-    display: block;
+.statistics-start::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 777;
+    background:
+    linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.8),
+            transparent
+            ),
+            rgba(29, 87, 188, 0.3);
     width: 100%;
-    height: 280px;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.statistics-start .content {
+    position: relative;
+    z-index: 888;
+    color: var(--white-color);
+    width: 70%;
+    margin-top: 50px;
+}
+
+.statistics-start .content .title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    line-height: 75px;
+    margin-bottom: 40px;
+}
+
+.statistics-start .content .title span {
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-semibold);
+    font-family: "Miniver", sans-serif;
+    text-transform: none;
+}
+
+.statistics-start img {
+    z-index: 000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-.card-data {
-    flex: 1;
+.about-vizualisation-section {
+    background: var(--light-beige-color);
+}
+
+.about-vizualisation-section .section-content {
+    max-width: 660px;
+}
+
+.map-container {
+    position: relative;
+    display: inline-block;
+}
+
+.africa-pin {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    left: 8%;
+    top: 41%;
+    transform: translate(-50%, -100%);
+}
+
+.vizualistation-section {
+    background: #eff0f4;
     display: flex;
     flex-direction: column;
-    
-    background-color: var(--white-color);
-    padding: 1.5rem 2rem;
-    
-    width: 100%;
-    margin: -80px auto 0;
-    position: relative;
+    gap: 100px;
+    padding: 120px;
 }
 
-.card-title {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    text-transform: uppercase;
+.vizualistation-section .container {
+    border-radius: var(--border-radius-m);
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px;
+    box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+    25px 35px 20px rgba(0, 0, 0, 0.05),
+    25px 30px 30px rgba(0, 0, 0, 0.05),
+    inset -20px -20px 25px rgba(255, 255, 255, 0.68);
 }
 
-.card-description {
-    display: block;
+.vizualistation-section .content {
+    flex: 1;
+    line-height: 25px;
     font-size: var(--font-size-s);
+    max-width: 380px;
+}
+
+.vizualistation-section .vizualisation-title {
+    padding: 0 0 20px 0;
     line-height: 1.4;
 }
 
-.card-description span {
-    font-weight: var(--font-weight-semibold);
-}
-
-.small-text {
-    font-size: var(--font-size-xs);
-}
-
-.card-button {
-    text-decoration: none;
-    font-size: var(--font-size-s);
-    color: var(--secondary-color);
-    margin-top: 10px;
-}
-
-.card-button:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
-    text-underline-offset: 4px;
+.vizualistation-section .chart {
+    flex: 1;
 }
 
 /* School section styling */
@@ -785,7 +816,7 @@ section {
 
 .barChart-section .section-content .barChart-details {
     max-width: 380px;
-
+    
 }
 
 .barChart-section .barChart-details .extra-text,
@@ -812,126 +843,93 @@ section {
     padding-left: 0;
 }
 
-/* Worldwide section styling */
-.statistics-start {
-    position: relative;
-    width: 100%;
-    min-height: 90vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+/* Contribute section styling */
+.contribute-section {
     background: var(--light-beige-color);
 }
 
-.statistics-start::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 777;
-    background:
-        linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.8),
-            transparent
-            ),
-            rgba(29, 87, 188, 0.3);
+.contribute-section .section-content {
+    display: flex;
+    gap: 60px;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.contribute-section .chart {
+    padding-top: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contribute-column {
+    flex: 1;
+}
+
+.card-section .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: stretch;
+}
+
+.card-section .card-container .card-article {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 3 - 32px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: var(--border-radius-m);
+    overflow: hidden;
+}
+
+.card-img {
+    display: block;
     width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-.statistics-start .content {
-    position: relative;
-    z-index: 888;
-    color: var(--white-color);
-    width: 70%;
-    margin-top: 50px;
-}
-
-.statistics-start .content .title {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    line-height: 75px;
-    margin-bottom: 40px;
-}
-
-.statistics-start .content .title span {
-    font-size: var(--font-size-xxl);
-    font-weight: var(--font-weight-semibold);
-    font-family: "Miniver", sans-serif;
-    text-transform: none;
-}
-
-.statistics-start img {
-    z-index: 000;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    height: 280px;
     object-fit: cover;
 }
 
-.map-container {
-    position: relative;
-    display: inline-block;
-}
-
-.africa-pin {
-    position: absolute;
-    width: 200px;
-    height: auto;
-    left: 8%;
-    top: 41%;
-    transform: translate(-50%, -100%);
-}
-
-.about-vizualisation-section {
-    background: var(--light-beige-color);
-}
-
-.about-vizualisation-section .section-content{
-    max-width: 660px;
-}
-
-.vizualistation-section {
-    background: #eff0f4;
+.card-data {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 100px;
-    padding: 120px;
+    background-color: var(--white-color);
+    padding: 1.5rem 2rem;
+    width: 100%;
+    margin: -80px auto 0;
+    position: relative;
 }
 
-.vizualistation-section .container {
-    border-radius: var(--border-radius-m);
-    display: flex;
-    gap: 50px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 60px;
-    box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
-    25px 35px 20px rgba(0, 0, 0, 0.05),
-    25px 30px 30px rgba(0, 0, 0, 0.05),
-    inset -20px -20px 25px rgba(255, 255, 255, 0.68);
+.card-title {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
-.vizualistation-section .content {
-    flex: 1;
-    line-height: 25px;
+.card-description {
+    display: block;
     font-size: var(--font-size-s);
-    max-width: 380px;
-}
-
-.vizualistation-section .vizualisation-title {
-    padding: 0 0 20px 0;
     line-height: 1.4;
 }
 
-.vizualistation-section .chart {
-    flex: 1;
+.card-description span {
+    font-weight: var(--font-weight-semibold);
+}
+
+.small-text {
+    font-size: var(--font-size-xs);
+}
+
+.card-button {
+    text-decoration: none;
+    font-size: var(--font-size-s);
+    color: var(--secondary-color);
+    margin-top: 10px;
+}
+
+.card-button:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
 /* References section styling */
@@ -1042,7 +1040,7 @@ section {
     color: var(--white-color);
 }
 
-/* Responsive media query code for max width 900px */
+/* Responsive media query code for max width 600px */
 @media screen and (max-width: 600px) {
     
     /* Home page */
@@ -1209,34 +1207,6 @@ section {
         font-size: var(--font-size-xl);
     }
     
-    /* School page */
-    .video-wrapper .content {
-        top: 65%;
-        right: 50%;
-        transform: translate(15%);
-        letter-spacing: 2px;
-        line-height: 40px;
-    }
-
-    /* Contribute page */
-    .contribute-section .section-content {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .card-section .card-container {
-        justify-content: center;
-    }
-
-    .card-section .card-container .card-article  {
-        width: 80%;
-    }
-
-    .card-description,
-    .small-text {
-        min-height: 220px;
-    }
-
     /* World page */
     .statistics-start {
         display: flex;
@@ -1289,6 +1259,29 @@ section {
     
     .vizualistation-section .container {
         padding: 60px;
+    }
+
+    /* School page */
+    .video-wrapper .content {
+        top: 65%;
+        right: 50%;
+        transform: translate(15%);
+        letter-spacing: 2px;
+        line-height: 40px;
+    }
+
+    /* Contribute page */
+    .contribute-section .section-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-section .card-container {
+        justify-content: center;
+    }
+
+    .card-section .card-container .card-article  {
+        width: 80%;
     }
 
     /* Reference page */

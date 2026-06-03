@@ -1,4 +1,4 @@
-// Videorna
+/* Navbar buttons */
 const navLinks = document.querySelectorAll(".nav-menu .nav-link");
 const menuOpenButtoon = document.querySelector("#menu-open-button");
 const menuCloseButtoon = document.querySelector("#menu-close-button");
@@ -18,7 +18,9 @@ if (navLinks && menuOpenButtoon) {
         link.addEventListener("click", () => menuOpenButtoon.click());
     });
 }
+/* ------------------------------------------------------------------------- */
 
+/* Round video buttons */
 const btns = document.querySelectorAll(".nav-btn");
 const slides = document.querySelectorAll(".video-slide");
 const contents = document.querySelectorAll(".content");
@@ -38,7 +40,9 @@ btns.forEach((btn, i) => {
         sliderNav(i);
     });
 });
+/* --------------------------------------------------------------------- */
 
+/* Showing navbar > 50 */
 window.addEventListener("scroll", function () {
     const header = this.document.querySelector("header");
     if (header) {
@@ -49,8 +53,9 @@ window.addEventListener("scroll", function () {
         }
     }
 });
+/* --------------------------------------------------------------------- */
 
-// Scroll to top button
+/* Scroll to top button */
 let calcScrollValue = () => {
   let scrollProgress = document.getElementById("progress");
   let progressValue = document.getElementById("progress-value");
@@ -74,8 +79,9 @@ let calcScrollValue = () => {
 
 window.onscroll = calcScrollValue;
 window.onload = calcScrollValue;
+/* --------------------------------------------------------------------- */
 
-// Pop-up info modal
+/* Pop-up modal */
 const highIncome = document.getElementById("high-income");
 const lowIncome = document.getElementById("low-income");
 const middleIncome = document.getElementById("middle-income");
@@ -110,58 +116,292 @@ document.querySelectorAll(".icon-close").forEach(button => {
     button.closest(".modal").classList.remove("modal-open");
   });
 });
+/* --------------------------------------------------------------------- */
 
-// Charts scatterplot och linjediagram
+/* OWID grafer */
 const urlOWID =
   "https://ourworldindata.org/grapher/improved-water-sources-vs-gdp-per-capita.csv?v=1&csvType=full&useColumnShortNames=true";
 
-const owid1 = document.getElementById("owid1")
-const owid2 = document.getElementById("owid2")
-  
-if (owid1 && owid2) {
-fetch(urlOWID)
-  .then((response) => response.text())
-  .then((data) => printOWIDChart(data));
-}
+const hasOWID =
+    document.getElementById("owid1") ||
+    document.getElementById("owid2") ||
+    document.getElementById("owid3") ||
+    document.getElementById("owidMap");
+
+if (hasOWID) {
+   fetch(urlOWID)
+    .then((response) => response.text())
+    .then((data) => printOWIDChart(data));
+}    
 
 function printOWIDChart(dataOWID) {
-
-  // dela upp i rader
   const rows = dataOWID.split("\n");
-
-  // dela upp varje rad i kolumner
   const data = rows.map(
     row => row.split(",")
   );
-  //ta bort första raden
-  const values = data.slice(1
+  const values = data.slice(1);
+
+/* Values scatterplot */
+  const year2024 = values.filter(
+    row => Number(row[2]) === 2024
   );
+  const scatterData = year2024.filter(row =>
+    Number(row[3]) > 0 && 
+    Number(row[4]) > 0 
+  )
+  .map(row => ({
+    x: Number(row[3]),
+    y: Number(row[4]),
+    country: row[0],
+    continent: row[5]
+  })) 
 
-  console.log(values)
-
-/* LINJEDIAGRAM SVERIGE VS TOGO */
-
-const togoData = values
+/* Values Togo vs Sweden */
+  const togoData = values
   .filter(row => row[0] === "Togo" &&
     Number(row[2]) > 0 &&
     Number(row[3]) > 0
   )
   .map(row => ({
-    x: Number(row[2]), // År
-    y: Number(row[3]) // Vatten 
+    x: Number(row[2]), 
+    y: Number(row[3])  
   }))
 
-const swedenData = values
+  const swedenData = values
   .filter(row => row[0] === "Sweden" &&
     Number(row[2]) > 0 &&
     Number(row[3]) > 0
   )
   .map(row => ({
-    x: Number(row[2]), // År
-    y: Number(row[3]) // Vatten  
+    x: Number(row[2]), 
+    y: Number(row[3])   
   }))
 
-new Chart(document.getElementById("owid2"), {
+/* Values Togo BNP vs water */
+  const togoWater = values
+  .filter(row => row[0] === "Togo" &&
+    Number(row[2]) > 0 &&
+    Number(row[3]) > 0
+  )
+  .map(row => ({
+    x: Number(row[2]), 
+    y: Number(row[3])    
+  }))
+
+  const togoGDP = values
+  .filter(row => row[0] === "Togo" &&
+    Number(row[2]) > 1999 &&
+    Number(row[4]) > 0
+  )
+  .map(row => ({
+    x: Number(row[2]),
+    y: Number(row[4])
+  }))
+/* -------------------------------------------------------------------------- */
+
+/* Heatmap */
+  if (document.getElementById("owidMap")) {
+    fetch("https://unpkg.com/world-atlas@2.0.2/countries-110m.json")
+      .then((res) => res.json())
+      .then((topoData) => {
+        const countries = ChartGeo.topojson.feature(topoData, topoData.objects.countries).features;
+  
+        fetch(urlOWID)
+          .then((response) => response.text())
+          .then((csvData) => printWorldMap(countries, csvData));
+      }
+    );
+  }
+  
+  function printWorldMap(countries, csvData) {
+    const rows = csvData.split("\n");
+    const data = rows.map(row => row.split(","));
+    const values = data.slice(1);
+    const targetYearData = values.filter(row => Number(row[2]) === 2024);
+    const waterAcessMap = {};
+    targetYearData.forEach(row => {
+      const countryName = row[0]. trim();
+      const waterAccess = Number(row[3]);
+      
+      if (!isNaN(waterAccess)) {
+        waterAcessMap[countryName] = waterAccess;
+      }
+    });
+  
+    const nameFix= {
+      "United States of America": "United States Virgin Islands",
+      "Congo": "Democratic Republic of Congo",
+      "Dem. Rep. Congo": "Democratic Republic of Congo",
+      "Domincan Rep.": "Dominican Republic",
+      "Central African Rep.": "Central African Republic",
+      "Eq. Guinea": "Equatorial Guinea",
+      "eSwatini": "Eswatini",
+      "S. Sudan": "South Sudan",
+      "Bosnia and Herz.": "Bosnia and Herzegovina",
+      "Macedonia": "North Macedonia",
+      "Timor-Leste": "East Timor",
+      "Solomon Is.": "Solomon Islands",
+      "Côte d'Ivoire": "Cote d'Ivoire",
+      "N. Cyprus": "Northern Cyprus",
+      "North Korea": "North Korea",
+      "Taiwan": "Taiwan (Province of China)",
+      "kosovo": "Kosovo",
+      "Eritrea": "Eritrea",
+      "Argentina": "Argentina",
+      "W. Sahara": "Western Sahara",
+    }
+  console.log(Object.keys(waterAcessMap).filter(n => n.includes("United States")))
+  console.log(Object.keys(waterAcessMap).filter(n => n.includes("Congo")))
+  console.log(Object.keys(waterAcessMap).filter(n => n.includes("Dem. Rep. Congo")))
+  
+  const mapData = countries.map((feature) => {
+      const originalName = feature.properties.name;
+      const countryName = nameFix[originalName] || originalName;
+      return {
+        feature, value: waterAcessMap[countryName] ?? null
+      };
+  });
+  
+  const missingCountries = [];
+  mapData.forEach(d => {
+    if (d.value === null) {
+      missingCountries.push(d.feature.properties.name);
+    }
+  });
+  
+  new Chart(document.getElementById("owidMap"), {
+      type: "choropleth",
+      data: { 
+        labels: mapData.map(d => d.feature.properties.name),
+        datasets: [{
+          label: "Tillgång till förbättrade vattenkällor (%)",
+          data: mapData
+        }]
+      },
+      options: {  
+        plugins: {
+          legend: {
+            display: false 
+          },
+          tooltip: {
+            callbacks: {
+              label: (ctx) => {
+                if (ctx.raw.value === null) {
+                  return ctx.chart.data.labels[ctx.dataIndex] + ": Data saknas";
+                }
+                return (
+                  ctx.chart.data.labels[ctx.dataIndex] + ": " + ctx.raw.value.toFixed(1) + "%"
+                );
+              }
+            }
+          }
+        },
+        scales: {
+          projection: {
+            axis: "x",
+            projection: "equalEarth"
+          },
+          color: {
+            axis: "x",
+            min: 0,
+            max: 100,
+            interpolate: (v) => {
+              const value = v * 100;
+              return `hsl(200, 70%, ${95 - value * 0.8}%)`
+            },
+            ticks: {
+              stepSize: 25,
+              callback: (value) => value + "%"
+            },
+            legend: {
+              position: "top-right"
+            }
+          }
+        }
+      }
+    });
+  }
+/* -------------------------------------------------------------------------- */
+ 
+/* Scatterplot */
+  function filterContinent(name, color) {
+      return{
+        label:name,
+        data: scatterData.filter(d => d.continent === name),
+        backgroundColor: color,
+        pointRadius: 5
+      }
+  }
+
+if (document.getElementById("owid1")) {
+  new Chart(document.getElementById("owid1"), {
+    type: "scatter",
+    data: {
+      datasets: [
+        filterContinent("Europe", "rgba(34, 112, 189, 0.6)"),
+        filterContinent("Asia", "rgba(128, 18, 206, 0.6)"),
+        filterContinent("Africa", "rgba(255, 141, 1, 0.6)"),
+        filterContinent("North America", "rgba(255, 0, 0, 0.6)"),
+        filterContinent("South America", "rgba(13, 108, 27, 0.6)"),
+        filterContinent("Oceania", "rgba(19, 199, 249, 0.6)"),
+      ]
+    },
+    options: {
+      plugins: {   
+        legend:{
+            position: "right",
+            align: "start",
+            labels: {
+              boxWidth: 12,
+              padding: 15
+            }
+          },
+        tooltip: {
+            callbacks: {
+              label: function(context) {
+                return (
+                  context.raw.country +
+                  " | Vatten: " +
+                  Math.round(context.raw.x) + "%" +
+                  " | BNP per capita: " + "$" +
+                  Math.round(context.raw.y).toLocaleString("sv-SE")
+                );
+              }
+            }
+          } 
+        },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: "Tillgång till förbättrade vattenkällor (%)",
+            padding: 10
+          },
+          ticks: {
+            callback: (value) => value.toFixed(0) + "%"
+          }
+        },
+        y: {
+          type: "logarithmic",
+          title: {
+            display: true,
+            text: "BNP per capita ($)",
+            padding: 10
+          },
+          ticks: {
+            maxTicksLimit: 5
+          }
+        }
+      }
+    }
+  });
+  }
+} 
+/* -------------------------------------------------------------------------- */
+
+/* Linechart Sweden vs Togo */
+if (document.getElementById("owid2")) {
+  new Chart(document.getElementById("owid2"), {
     type: "line",
     data: {
       datasets: [
@@ -197,7 +437,7 @@ new Chart(document.getElementById("owid2"), {
             },
             label: function(context) {
               return( 
-                " Vatten: " + context.raw.y.toFixed(2) + "%" //kanske byta till "Number(context.raw.y).toFixed(2)"
+                " Vatten: " + context.raw.y.toFixed(2) + "%"
               )
             }
           }
@@ -205,7 +445,7 @@ new Chart(document.getElementById("owid2"), {
       },
       scales: {
         x: {
-          type: "linear", // ÄNDRA TILL CATEGORY?
+          type: "linear",
           ticks: {
             callback: (value) => Number(value)
           }
@@ -222,31 +462,13 @@ new Chart(document.getElementById("owid2"), {
         }
       }
     }
-})
+  })
+}
+/* -------------------------------------------------------------------------- */
 
-/* LINJEDIAGRAM TOGO BNP VS TOGO*/
-
-const togoWater = values
-  .filter(row => row[0] === "Togo" &&
-    Number(row[2]) > 0 &&
-    Number(row[3]) > 0
-  )
-  .map(row => ({
-    x: Number(row[2]), // År
-    y: Number(row[3]) // Vatten   
-  }))
-
-const togoGDP = values
-  .filter(row => row[0] === "Togo" &&
-    Number(row[2]) > 1999 &&
-    Number(row[4]) > 0
-  )
-  .map(row => ({
-    x: Number(row[2]),
-    y: Number(row[4])
-  }))
-
-new Chart(document.getElementById("owid3"), {
+/* Linechart Togo BNP vs water */
+if (document.getElementById("owid3")) {
+  new Chart(document.getElementById("owid3"), {
     type: "line",
     data: {
       datasets: [
@@ -283,7 +505,7 @@ new Chart(document.getElementById("owid3"), {
             },
             label: function(context) {
               if (context.dataset.label === "Vattentillgång (%)") {
-                return " Vatten: " + context.raw.y.toFixed(1) + "%"; //kanske byta till "Number(context.raw.y).toFixed(2)"
+                return " Vatten: " + context.raw.y.toFixed(1) + "%";
               } else {
                 return " BNP per capita: " + Math.round(context.parsed.y).toLocaleString() + "$";
               }
@@ -321,241 +543,11 @@ new Chart(document.getElementById("owid3"), {
         }
       }
     }
-})
-
-// SCATTERPLOT
-  // välj år
-     const year2024 = values.filter(
-    row => Number(row[2]) === 2024
-  );
-
-  console.log(year2024)
-
-
-  const scatterData = year2024.filter(row =>
-    Number(row[3]) > 0 && // båda rader filtrerar bort värden med 0
-    Number(row[4]) > 0  //(större än noll) hindrar felaktiga värden att hamna i grafen
-  )
-  .map(row => ({
-
-    x: Number(row[3]),
-    y: Number(row[4]),
-    country: row[0],
-    continent: row[5]
-
-})) 
-
-function filterContinent(name, color) {
-    return{
-      label:name,
-      data: scatterData.filter(d => d.continent === name),
-      backgroundColor: color,
-      pointRadius: 5
-    }
+  })
 }
+/* ------------------------------------------------------------------------------- */
 
-console.log(scatterData);
-
-//Skapa chart
-new Chart(document.getElementById("owid1"), {
-  type: "scatter",
-  data: {
-    datasets: [
-      filterContinent("Europe", "rgba(34, 112, 189, 0.6)"),
-      filterContinent("Asia", "rgba(128, 18, 206, 0.6)"),
-      filterContinent("Africa", "rgba(255, 141, 1, 0.6)"),
-      filterContinent("North America", "rgba(255, 0, 0, 0.6)"),
-      filterContinent("South America", "rgba(13, 108, 27, 0.6)"),
-      filterContinent("Oceania", "rgba(19, 199, 249, 0.6)"),
-    ]
-  },
-  options: {
-    plugins: {   
-      legend:{
-          position: "right",
-          align: "start",
-          labels: {
-            boxWidth: 12,
-            padding: 15
-          }
-        },
-      tooltip: {
-          callbacks: {
-            label: function(context) {
-              return (
-                context.raw.country +
-                " | Vatten: " +
-                Math.round(context.raw.x) + "%" +
-                " | BNP per capita: " + "$" +
-                Math.round(context.raw.y).toLocaleString("sv-SE")
-              );
-            }
-          }
-        } 
-      },
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: "Tillgång till förbättrade vattenkällor (%)",
-          padding: 10
-        },
-        ticks: {
-          callback: (value) => value.toFixed(0) + "%"
-        }
-      },
-      y: {
-        type: "logarithmic",
-        title: {
-          display: true,
-          text: "BNP per capita ($)",
-          padding: 10
-        },
-        ticks: {
-          maxTicksLimit: 5
-        }
-      }
-    }
-  }
-});
-}
-
-// HeatMap
-if (document.getElementById("owidMap")) {
-    fetch("https://unpkg.com/world-atlas@2.0.2/countries-110m.json")
-      .then((res) => res.json())
-      .then((topoData) => {
-        const countries = ChartGeo.topojson.feature(topoData, topoData.objects.countries).features;
-
-        fetch(urlOWID)
-          .then((response) => response.text())
-          .then((csvData) => printWorldMap(countries, csvData));
-      });
-}
-
-function printWorldMap(countries, csvData) {
-  const rows = csvData.split("\n");
-  const data = rows.map(row => row.split(","));
-  const values = data.slice(1);
-
-  const targetYearData = values.filter(row => Number(row[2]) === 2024);
-
-  const waterAcessMap = {};
-  targetYearData.forEach(row => {
-    const countryName = row[0]. trim();
-    const waterAccess = Number(row[3]);
-    
-    if (!isNaN(waterAccess)) {
-      waterAcessMap[countryName] = waterAccess;
-    }
-  });
-
-/* Fixas med 0 data/White i kartan */
-  const nameFix= {
-    "United States of America": "United States Virgin Islands",
-    "Congo": "Democratic Republic of Congo",
-    "Dem. Rep. Congo": "Democratic Republic of Congo",
-    "Domincan Rep.": "Dominican Republic",
-    "Central African Rep.": "Central African Republic",
-    "Eq. Guinea": "Equatorial Guinea",
-    "eSwatini": "Eswatini",
-    "S. Sudan": "South Sudan",
-    "Bosnia and Herz.": "Bosnia and Herzegovina",
-    "Macedonia": "North Macedonia",
-    "Timor-Leste": "East Timor",
-    "Solomon Is.": "Solomon Islands",
-    "Côte d'Ivoire": "Cote d'Ivoire",
-    "N. Cyprus": "Northern Cyprus",
-    "North Korea": "North Korea",
-    "Taiwan": "Taiwan (Province of China)",
-    "kosovo": "Kosovo",
-    "Eritrea": "Eritrea",
-    "Argentina": "Argentina",
-    "W. Sahara": "Western Sahara",
-  }
-console.log(Object.keys(waterAcessMap).filter(n => n.includes("United States")))
-console.log(Object.keys(waterAcessMap).filter(n => n.includes("Congo")))
-console.log(Object.keys(waterAcessMap).filter(n => n.includes("Dem. Rep. Congo")))
-console.log(Object.keys(waterAcessMap).filter(n => n.includes("Nicaragua")))
-/* ----------- */
-
-const mapData = countries.map((feature) => {
-    const originalName = feature.properties.name;
-    const countryName = nameFix[originalName] || originalName;
-    
-    return {feature, value: waterAcessMap[countryName] ?? null
-
-    };
-});
-
-const missingCountries = [];
-mapData.forEach(d => {
-  if (d.value === null) {
-    missingCountries.push(d.feature.properties.name);
-  }
-});
-console.log("Missing countries:", missingCountries.sort()
-);
-
-console.log(mapData);
-
-  new Chart(document.getElementById("owidMap"), {
-    type: "choropleth",
-    data: { 
-      labels: mapData.map(d => d.feature.properties.name),
-      datasets: [{
-        label: "Tillgång till förbättrade vattenkällor (%)",
-        data: mapData
-      }]
-    },
-    options: {  
-      plugins: {
-        legend: {
-          display: false 
-        },
-        tooltip: {
-          callbacks: {
-            label: (ctx) => {
-              if (ctx.raw.value === null) {
-                return ctx.chart.data.labels[ctx.dataIndex] + ": Data saknas";
-              }
-              return (
-                ctx.chart.data.labels[ctx.dataIndex] + ": " + ctx.raw.value.toFixed(1) + "%"
-              );
-            }
-          }
-        }
-      },
-      scales: {
-        projection: {
-          axis: "x",
-          projection: "equalEarth"
-        },
-        color: {
-          axis: "x",
-          min: 0,
-          max: 100,
-          interpolate: (v) => {
-          const value = v * 100;
-          return `hsl(200, 70%, ${95 - value * 0.8}%)`
-          },
-          ticks: {
-            stepSize: 25,
-            callback: (value) => value + "%"
-          },
-          legend: {
-            position: "top-right"
-          }
-        }
-      }
-    }
-  });
-}
-
-// Bar chart
-
-// Här hämtas statistik från Our World In data (en hemsida).
-// Data tilldelas i variabeln urlOWID med const (const eftersom variabeln inte ska ändras).
+/* Barchart Zimbabwe vs Sweden */
 const urlOWIDSchool = "https://ourworldindata.org/grapher/schools-access-drinking-water.csv?v=1&csvType=full&useColumnShortNames=true";
 
 if (document.getElementById("owidBar")) {
@@ -564,35 +556,19 @@ if (document.getElementById("owidBar")) {
     .then(data => printSchoolChart(data));
   }
 
-/* En funktion = en samling instruktioner (ett recept)
-Funktionen namnges till printOWIDChart och informationen som skickas in är från dataOWD.*/
 function printSchoolChart(dataOWIDSchool) {
-    // Dela upp i Java strängarna, varje gång en ny rad kommer.
     const rows = dataOWIDSchool.split("\n");
-
-    // Dela upp varje rad i kolumner efter varje ",".
     const data = rows.map(
         row => row.split(",")
     );
-    
-    // Ta bort första raden eftersom den bara är rubriker.
     const values = data.slice(1);
-    
-    /* Filter används för att filtrera ut data från datasetet. Den säger "behåll bara vissa element."
-    Här kollar man rad 2, vilket är årtal i datasetet */
     const year2020 = values.filter(
         row => Number(row[2]) === 2020
     );
-    
-    // y-axelns titel-label tilldelas i variabeln "labels"
     const labels = ["Gymnasie", "Högstadie", "Grundskola"];
-
-    // Två tomma arrayer (listor) där värde senare skall tilldelas.
     const sweden = [];
     const zimbabwe = [];
 
-    /* En loop som loopar igenom datan med året 2021
-    om det gäller Togo och Sverige, läggs datan in i arrayen. */
     year2020.forEach(row => {
         const country = row[0];
         
@@ -611,14 +587,11 @@ function printSchoolChart(dataOWIDSchool) {
             );
         }
     });
-    
-    /* Här skapar vi ett nytt diagram av typen "bar".
-    Först försöker du hitta HTML-elementet med id "owid". */
+
     new Chart(document.getElementById("owidBar"), {
         type: "bar",
         data: {
             labels: labels,
-        // Stil på staplarna för Zimbabwe och Sverige.
         datasets: [
           {
             label: "Sweden",
@@ -637,19 +610,14 @@ function printSchoolChart(dataOWIDSchool) {
             backgroundColor: "rgb(176, 129, 78)"
           }
         ]},
-        
-        // Grafens utseende:
+
         options: {
-            // Sätter padding för att 100% skall synas.
             layout: {
                 padding: {
                     right: 50
                 }
             },
-            // Staplarna ska vila på y-axeln.
             indexAxis: "y",
-
-            // x-axelns skala skall vara procent från 0-100
             scales: {
                 x: {
                     title: {
@@ -663,8 +631,6 @@ function printSchoolChart(dataOWIDSchool) {
                         callback: value => value + "%"
                     }
                 },
-
-                // Tar bort rutnät
                 y: {
                     grid: {
                         display: false
@@ -674,10 +640,7 @@ function printSchoolChart(dataOWIDSchool) {
         },
         
         plugins: [{
-            // Möjliggör att rita ovanpå diagrammet
             id: "valueLabels",
-
-            // En funktion som får siffrorna att synas i slutet av staplarna.
             afterDatasetsDraw(chart) {
                 const { ctx } = chart;
       

@@ -804,6 +804,7 @@ section {
     padding-bottom: 15px;
 }
 
+.map-section .chart .extra-text,
 .contribute-section .chart .extra-text,
 .contribute-section .contribute-column .extra-text,
 .vizualistation-section .chart .extra-text {

@@ -1290,6 +1290,7 @@ section {
         padding: 60px;
     }
 
+    /* Reference page */
     .references-section {
         padding: 60px 40px;   
     }
@@ -1298,6 +1299,22 @@ section {
         display: flex;
         flex-direction: column;
         width: 100%;
+    }
+
+    .references-section .ref-box:nth-child(1) {
+        order: 3;
+    }
+    
+    .references-section .ref-box:nth-child(2) {
+        order: 1;
+    }
+    
+    .references-section .ref-box:nth-child(3) {
+        order: 2;
+    }
+
+    .references-section .ref-box:nth-child(4) {
+        order: 4;
     }
 
     .references-section .ref-box:first-child, .ref-box:nth-child(4) .references-list {

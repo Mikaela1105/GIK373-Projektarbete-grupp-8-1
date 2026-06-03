@@ -1,3 +1,4 @@
+/* Mikaela Carlsson, Hilda Bengtsson, Sali Alousi */
 /* Navbar buttons */
 const navLinks = document.querySelectorAll(".nav-menu .nav-link");
 const menuOpenButtoon = document.querySelector("#menu-open-button");

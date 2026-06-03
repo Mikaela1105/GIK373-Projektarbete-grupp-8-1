@@ -258,9 +258,6 @@ function printOWIDChart(dataOWID) {
       "Argentina": "Argentina",
       "W. Sahara": "Western Sahara",
     }
-  console.log(Object.keys(waterAcessMap).filter(n => n.includes("United States")))
-  console.log(Object.keys(waterAcessMap).filter(n => n.includes("Congo")))
-  console.log(Object.keys(waterAcessMap).filter(n => n.includes("Dem. Rep. Congo")))
   
   const mapData = countries.map((feature) => {
       const originalName = feature.properties.name;
